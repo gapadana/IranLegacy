@@ -1,0 +1,10 @@
+##############Ignore All#############
+/*
+##########Except these files#########
+!.gitignore
+!server.zip
+!resources
+!resources/*
+!server.cfg
+!tables.sql
+#####################################
