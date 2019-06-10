@@ -2,9 +2,9 @@
 /*
 ##########Except these files#########
 !.gitignore
-!server.zip
 !resources
 !resources/*
 !server.cfg
+!server1.cfg
 !tables.sql
 #####################################
