@@ -1,0 +1,5 @@
+AddEventHandler('es:playerLoaded', function(source)
+ TriggerEvent('es:getPlayerFromId', source, function(user)
+   user:setMoney((user.money))
+   end)
+end)

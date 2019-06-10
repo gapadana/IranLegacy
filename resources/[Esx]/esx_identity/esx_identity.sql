@@ -1,0 +1,5 @@
+USE `fivem5`;
+
+ALTER TABLE `users`
+	ADD COLUMN `warrant` VARCHAR(3) NOT NULL DEFAULT 'No'
+;
