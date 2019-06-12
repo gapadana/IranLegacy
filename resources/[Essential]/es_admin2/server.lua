@@ -3,7 +3,7 @@ TriggerEvent("es:addGroup", "mod", "user", function(group) end)
 -- Modify if you want, btw the _admin_ needs to be able to target the group and it will work
 local groupsRequired = {
 	slay = "mod",
-	noclip = "admin",
+	noclip = "mod",
 	crash = "superadmin",
 	freeze = "mod",
 	bring = "mod",
@@ -173,7 +173,7 @@ RegisterServerEvent('es_admin:set')
 AddEventHandler('es_admin:set', function(t, USER, GROUP)
 	local Source = source
 	TriggerEvent('es:getPlayerFromId', source, function(user)
-		TriggerEvent('es:canGroupTarget', user.getGroup(), "admin", function(available)
+		TriggerEvent('es:canGroupTarget', user.getGroup(), "superadmin", function(available)
 			if available then
 			if t == "group" then
 				if(GetPlayerName(USER) == nil)then
@@ -265,7 +265,7 @@ AddEventHandler('es_admin:set', function(t, USER, GROUP)
 	end)
 end)
 
-RegisterCommand('setadmin', function(source, args, raw)
+TriggerEvent("es:addGroupCommand", 'setadmin', "superadmin", function(source, args, raw)
 	local player = tonumber(args[1])
 	local level = tonumber(args[2])
 	if args[1] then
@@ -290,7 +290,7 @@ RegisterCommand('setadmin', function(source, args, raw)
 	end
 end, true)
 
-RegisterCommand('setgroup', function(source, args, raw)
+TriggerEvent("es:addGroupCommand", 'setgroup', "superadmin", function(source, args, raw)
 	local player = tonumber(args[1])
 	local group = args[2]
 	if args[1] then
@@ -320,7 +320,7 @@ RegisterCommand('setgroup', function(source, args, raw)
 	else
 		RconPrint("Usage: setgroup [user-id] [group]\n")
 	end
-end, true)
+end)
 
 RegisterCommand('giverole', function(source, args, raw)
 	local player = tonumber(args[1])
@@ -368,7 +368,7 @@ RegisterCommand('removerole', function(source, args, raw)
 	end
 end, true)
 
-RegisterCommand('setmoney', function(source, args, raw)
+TriggerEvent("es:addGroupCommand", 'setmoney', "superadmin", function(source, args, raw)
 	local player = tonumber(args[1])
 	local money = tonumber(args[2])
 	if args[1] then
@@ -393,7 +393,7 @@ RegisterCommand('setmoney', function(source, args, raw)
 	else
 		RconPrint("Usage: setmoney [user-id] [money]\n")
 	end
-end, true)
+end)
 
 -- Default commands
 TriggerEvent('es:addCommand', 'admin', function(source, args, user)
@@ -476,7 +476,7 @@ TriggerEvent('es:addCommand', 'report', function(source, args, user)
 end, {help = "Report a player or an issue", params = {{name = "report", help = "What you want to report"}}})
 
 -- Noclip
-TriggerEvent('es:addGroupCommand', 'noclip', "admin", function(source, args, user)
+TriggerEvent('es:addGroupCommand', 'noclip', "mod", function(source, args, user)
 	TriggerClientEvent("es_admin:noclip", source)
 end, function(source, args, user)
 	TriggerClientEvent('chat:addMessage', source, { args = {"^1SYSTEM", "Insufficienct permissions!"} })
@@ -515,7 +515,7 @@ end, function(source, args, user)
 end, {help = "Kick a user with the specified reason or no reason", params = {{name = "userid", help = "The ID of the player"}, {name = "reason", help = "The reason as to why you kick this player"}}})
 
 -- Announcing
-TriggerEvent('es:addGroupCommand', 'announce', "admin", function(source, args, user)
+TriggerEvent('es:addGroupCommand', 'announce', "mod", function(source, args, user)
 	TriggerClientEvent('chat:addMessage', -1, {
 		args = {"^1ANNOUNCEMENT", table.concat(args, " ")}
 	})
@@ -640,7 +640,7 @@ TriggerEvent('es:addCommand', 'die', function(source, args, user)
 end, {help = "Suicide"})
 
 -- Slay a player
-TriggerEvent('es:addGroupCommand', 'slay', "admin", function(source, args, user)
+TriggerEvent('es:addGroupCommand', 'slay', "mod", function(source, args, user)
 	if args[1] then
 		if(tonumber(args[1]) and GetPlayerName(tonumber(args[1])))then
 			local player = tonumber(args[1])
