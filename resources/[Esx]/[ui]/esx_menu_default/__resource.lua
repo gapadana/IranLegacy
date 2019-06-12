@@ -19,6 +19,7 @@ files {
 	'html/js/mustache.min.js',
 	'html/js/app.js',
 	'html/fonts/pdown.ttf',
+	'html/fonts/iran.otf',
 	'html/fonts/bankgothic.ttf',
 	'html/img/cursor.png',
 	'html/img/keys/enter.png',

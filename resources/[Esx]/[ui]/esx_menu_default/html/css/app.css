@@ -1,11 +1,11 @@
 @font-face {
   font-family: bankgothic;
-  src: url('../fonts/bankgothic.ttf');
+  src: url('../fonts/iran.otf');
 }
 
 @font-face {
   font-family: pcdown;
-  src: url('../fonts/pdown.ttf');
+  src: url('../fonts/iran.otf');
 }
 .menu {	
   border-color: black;
@@ -78,7 +78,7 @@
 .menu .head {
   font-family: pcdown;	
   font-size: 0%;
-  color: white;
+  color: yellow;
   border-top-left-radius : 15px 15px;
   border-top-right-radius : 15px 15px;
   background:url('http://s9.picofile.com/file/8358366800/222222222.png');
@@ -89,14 +89,15 @@
 
 .menu .text {
   font-family: pcdown;
+  font-size: 150%;
   height          : 40px;
   display         : block;
-  background-color: #f1f1f1;
+  background-color: #666666;
   box-shadow      : inset 1px 0px 0px 1px #b8b8b8;
   height          : 38px;
   line-height     : 38px;
    text-align   : center; 
-  color           : #3A3A3A;
+  color           : #ffffff;
   opacity: 0.7;  
 }
 

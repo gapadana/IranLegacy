@@ -62,28 +62,28 @@ function OpenPersonnelMenu()
 		
 		local elements = {}
 		
-		table.insert(elements, {label = 'Me concernant',		value = 'menuperso_moi'})
-		table.insert(elements, {label = 'Actions',					value = 'menuperso_actions'})
-		if (IsInVehicle()) then
-			local vehicle = GetVehiclePedIsIn( GetPlayerPed(-1), false )
-			if ( GetPedInVehicleSeat( vehicle, -1 ) == GetPlayerPed(-1) ) then
-				table.insert(elements, {label = 'Véhicule',					value = 'menuperso_vehicule'})
-			end
-		end
-		table.insert(elements, {label = 'GPS Rapide',			value = 'menuperso_gpsrapide'})
+		table.insert(elements, {label = 'اطلاعات من',		value = 'menuperso_moi'})
+		-- table.insert(elements, {label = 'نشان دادن شکلک',					value = 'menuperso_actions'})
+		-- if (IsInVehicle()) then
+			-- local vehicle = GetVehiclePedIsIn( GetPlayerPed(-1), false )
+			-- if ( GetPedInVehicleSeat( vehicle, -1 ) == GetPlayerPed(-1) ) then
+				-- table.insert(elements, {label = 'مدیریت خودرو',					value = 'menuperso_vehicule'})
+			-- end
+		-- end
+		table.insert(elements, {label = 'مسیریابی سریع',			value = 'menuperso_gpsrapide'})
 		if PlayerData.job.grade_name == 'boss' then
-			table.insert(elements, {label = 'Gestion d\'entreprise',			value = 'menuperso_grade'})
+			table.insert(elements, {label = 'بخش مدیریت کار',			value = 'menuperso_grade'})
 		end
 				
 		if playergroup == 'mod' or playergroup == 'admin' or playergroup == 'superadmin' or playergroup == 'owner' then
-			table.insert(elements, {label = 'Modération',				value = 'menuperso_modo'})
+			table.insert(elements, {label = 'بخش ادمینی',				value = 'menuperso_modo'})
 		end
 		
 		ESX.UI.Menu.Open(
 			'default', GetCurrentResourceName(), 'menu_perso',
 			{
-				title    = 'Menu Personnel',
-				align    = 'top-left',
+				title    = 'منو دسترسی',
+				align    = 'top-right',
 				elements = elements
 			},
 			function(data, menu)
@@ -91,78 +91,77 @@ function OpenPersonnelMenu()
 				local elements = {}
 				
 				if playergroup == 'mod' then
-					table.insert(elements, {label = 'TP roo player',    							value = 'menuperso_modo_tp_toplayer'})
-					table.insert(elements, {label = 'Bring',             			value = 'menuperso_modo_tp_playertome'})
-					--table.insert(elements, {label = 'TP sur coordonées [WIP]',						value = 'menuperso_modo_tp_pos'})
-					--table.insert(elements, {label = 'NoClip',										value = 'menuperso_modo_no_clip'})
-					--table.insert(elements, {label = 'Mode invincible',									value = 'menuperso_modo_godmode'})
-					--table.insert(elements, {label = 'Mode fantôme',								value = 'menuperso_modo_mode_fantome'})
-					--table.insert(elements, {label = 'Réparer véhicule',							value = 'menuperso_modo_vehicle_repair'})
-					--table.insert(elements, {label = 'Faire apparaître un véhicule',							value = 'menuperso_modo_vehicle_spawn'})
-					--table.insert(elements, {label = 'Retourner le véhicule',								value = 'menuperso_modo_vehicle_flip'})
-					--table.insert(elements, {label = 'S\'octroyer de l\'argent',						value = 'menuperso_modo_give_money'})
-					--table.insert(elements, {label = 'S\'octroyer de l\'argent (banque)',						value = 'menuperso_modo_give_moneybank'})
-					--table.insert(elements, {label = 'S\'octroyer de l\'argent sale',						value = 'menuperso_modo_give_moneydirty'})
-					table.insert(elements, {label = 'TP roo pin naghshe',							value = 'menuperso_modo_tp_marcker'})
-					table.insert(elements, {label = 'Makhfi/Neshoon dadan Mokhtasat',		value = 'menuperso_modo_showcoord'})
-					table.insert(elements, {label = 'Makhfi/Neshoon dadan Esme Player',	value = 'menuperso_modo_showname'})
-					--table.insert(elements, {label = 'TP sur le marqueur',							value = 'menuperso_modo_tp_marcker'})
-					--table.insert(elements, {label = 'Soigner la personne',					value = 'menuperso_modo_heal_player'})
-					--table.insert(elements, {label = 'Mode spectateur [WIP]',						value = 'menuperso_modo_spec_player'})
-					--table.insert(elements, {label = 'Changer l\'apparence',									value = 'menuperso_modo_changer_skin'})
-					--table.insert(elements, {label = 'Sauvegarder l\'apparence',									value = 'menuperso_modo_save_skin'})
+					table.insert(elements, {label = 'تعمیر ماشین',								value = 'menuperso_modo_vehicle_repair'})
+					-- table.insert(elements, {label = 'Spawn Mashin',								value = 'menuperso_modo_vehicle_spawn'})
+					table.insert(elements, {label = 'رفتن رو پلیر',    						value = 'menuperso_modo_tp_toplayer'})
+					table.insert(elements, {label = 'آوردن پلیر',             						value = 'menuperso_modo_tp_playertome'})
+					table.insert(elements, {label = 'تلپورت رو پین نقشه',						value = 'menuperso_modo_tp_marcker'})
+					-- table.insert(elements, {label = 'TP ba Mokhtasat [WIP]',					value = 'menuperso_modo_tp_pos'})
+					-- table.insert(elements, {label = 'NoClip',									value = 'menuperso_modo_no_clip'})
+					-- table.insert(elements, {label = 'Gheyb',									value = 'menuperso_modo_godmode'})
+					-- table.insert(elements, {label = 'Rooh',										value = 'menuperso_modo_mode_fantome'})
+					table.insert(elements, {label = 'برگردوندن ماشین',						value = 'menuperso_modo_vehicle_flip'})
+					-- table.insert(elements, {label = 'Give money',								value = 'menuperso_modo_give_money'})
+					-- table.insert(elements, {label = 'Give Money(bank)',							value = 'menuperso_modo_give_moneybank'})
+					-- table.insert(elements, {label = 'Give Money(poole kasif)',					value = 'menuperso_modo_give_moneydirty'})
+					-- table.insert(elements, {label = 'Makhfi/Neshoon dadan Mokhtasat',			value = 'menuperso_modo_showcoord'})
+					-- table.insert(elements, {label = 'Makhfi/Neshoon dadan Esme Player',			value = 'menuperso_modo_showname'})
+					table.insert(elements, {label = 'پر کردن جون پلیر',						value = 'menuperso_modo_heal_player'})
+					table.insert(elements, {label = 'زیر نظر گرفتن پلیر',							value = 'menuperso_modo_spec_player'})
+					-- table.insert(elements, {label = 'Taghir ghiafe',							value = 'menuperso_modo_changer_skin'})
+					-- table.insert(elements, {label = 'Zakhire zaher',							value = 'menuperso_modo_save_skin'})
 				end
 			
 				if playergroup == 'admin' then
-					table.insert(elements, {label = 'TP roo player',    							value = 'menuperso_modo_tp_toplayer'})
-					table.insert(elements, {label = 'Bring',             			value = 'menuperso_modo_tp_playertome'})
-					-- table.insert(elements, {label = 'TP ba Mokhtasat [WIP]',						value = 'menuperso_modo_tp_pos'})
-					table.insert(elements, {label = 'NoClip',										value = 'menuperso_modo_no_clip'})
-					table.insert(elements, {label = 'Gheyb',									value = 'menuperso_modo_godmode'})
-					table.insert(elements, {label = 'Rooh',								value = 'menuperso_modo_mode_fantome'})
-					table.insert(elements, {label = 'Tamir Mashin',							value = 'menuperso_modo_vehicle_repair'})
-					table.insert(elements, {label = 'Spawn Mashin',							value = 'menuperso_modo_vehicle_spawn'})
-					table.insert(elements, {label = 'Mashin ro bargardoon',								value = 'menuperso_modo_vehicle_flip'})
-					table.insert(elements, {label = 'Give money',						value = 'menuperso_modo_give_money'})
-					table.insert(elements, {label = 'Give Money(bank)',						value = 'menuperso_modo_give_moneybank'})
-					table.insert(elements, {label = 'Give Money(poole kasif)',						value = 'menuperso_modo_give_moneydirty'})
-					table.insert(elements, {label = 'Makhfi/Neshoon dadan Mokhtasat',		value = 'menuperso_modo_showcoord'})
-					table.insert(elements, {label = 'Makhfi/Neshoon dadan Esme Player',	value = 'menuperso_modo_showname'})
-					table.insert(elements, {label = 'TP roo pin naghshe',							value = 'menuperso_modo_tp_marcker'})
-					table.insert(elements, {label = 'Heal kardan player',					value = 'menuperso_modo_heal_player'})
-					-- table.insert(elements, {label = 'Spectate [WIP]',						value = 'menuperso_modo_spec_player'})
-					table.insert(elements, {label = 'Taghir ghiafe',									value = 'menuperso_modo_changer_skin'})
-					table.insert(elements, {label = 'Zakhire zaher',									value = 'menuperso_modo_save_skin'})
+					table.insert(elements, {label = 'تعمیر ماشین',								value = 'menuperso_modo_vehicle_repair'})
+					-- table.insert(elements, {label = 'Spawn Mashin',								value = 'menuperso_modo_vehicle_spawn'})
+					table.insert(elements, {label = 'رفتن رو پلیر',    						value = 'menuperso_modo_tp_toplayer'})
+					table.insert(elements, {label = 'آوردن پلیر',             						value = 'menuperso_modo_tp_playertome'})
+					table.insert(elements, {label = 'تلپورت رو پین نقشه',						value = 'menuperso_modo_tp_marcker'})
+					table.insert(elements, {label = 'تلپورت روی مختصات',					value = 'menuperso_modo_tp_pos'})
+					table.insert(elements, {label = 'حالت پرواز',									value = 'menuperso_modo_no_clip'})
+					table.insert(elements, {label = 'حالت نامرئی',									value = 'menuperso_modo_godmode'})
+					table.insert(elements, {label = 'حالت روح',										value = 'menuperso_modo_mode_fantome'})
+					table.insert(elements, {label = 'برگردوندن ماشین',						value = 'menuperso_modo_vehicle_flip'})
+					-- table.insert(elements, {label = 'Give money',								value = 'menuperso_modo_give_money'})
+					-- table.insert(elements, {label = 'Give Money(bank)',							value = 'menuperso_modo_give_moneybank'})
+					-- table.insert(elements, {label = 'Give Money(poole kasif)',					value = 'menuperso_modo_give_moneydirty'})
+					-- table.insert(elements, {label = 'Makhfi/Neshoon dadan Mokhtasat',			value = 'menuperso_modo_showcoord'})
+					-- table.insert(elements, {label = 'Makhfi/Neshoon dadan Esme Player',			value = 'menuperso_modo_showname'})
+					table.insert(elements, {label = 'پر کردن جون پلیر',						value = 'menuperso_modo_heal_player'})
+					table.insert(elements, {label = 'زیر نظر گرفتن پلیر',							value = 'menuperso_modo_spec_player'})
+					-- table.insert(elements, {label = 'Taghir ghiafe',							value = 'menuperso_modo_changer_skin'})
+					-- table.insert(elements, {label = 'Zakhire zaher',							value = 'menuperso_modo_save_skin'})
 				end
 			
 				if playergroup == 'superadmin' or playergroup == 'owner' then
-					table.insert(elements, {label = 'TP roo player',    							value = 'menuperso_modo_tp_toplayer'})
-					table.insert(elements, {label = 'Bring',             			value = 'menuperso_modo_tp_playertome'})
-					table.insert(elements, {label = 'TP ba Mokhtasat [WIP]',						value = 'menuperso_modo_tp_pos'})
-					table.insert(elements, {label = 'NoClip',										value = 'menuperso_modo_no_clip'})
-					table.insert(elements, {label = 'Gheyb',									value = 'menuperso_modo_godmode'})
-					table.insert(elements, {label = 'Rooh',								value = 'menuperso_modo_mode_fantome'})
-					table.insert(elements, {label = 'Tamir Mashin',							value = 'menuperso_modo_vehicle_repair'})
-					table.insert(elements, {label = 'Spawn Mashin',							value = 'menuperso_modo_vehicle_spawn'})
-					table.insert(elements, {label = 'Mashin ro bargardoon',								value = 'menuperso_modo_vehicle_flip'})
-					table.insert(elements, {label = 'Give money',						value = 'menuperso_modo_give_money'})
-					table.insert(elements, {label = 'Give Money(bank)',						value = 'menuperso_modo_give_moneybank'})
-					table.insert(elements, {label = 'Give Money(poole kasif)',						value = 'menuperso_modo_give_moneydirty'})
-					table.insert(elements, {label = 'Makhfi/Neshoon dadan Mokhtasat',		value = 'menuperso_modo_showcoord'})
-					table.insert(elements, {label = 'Makhfi/Neshoon dadan Esme Player',	value = 'menuperso_modo_showname'})
-					table.insert(elements, {label = 'TP roo pin naghshe',							value = 'menuperso_modo_tp_marcker'})
-					table.insert(elements, {label = 'Heal kardan player',					value = 'menuperso_modo_heal_player'})
-					table.insert(elements, {label = 'Spectate [WIP]',						value = 'menuperso_modo_spec_player'})
-					table.insert(elements, {label = 'Taghir ghiafe',									value = 'menuperso_modo_changer_skin'})
-					table.insert(elements, {label = 'Zakhire zaher',									value = 'menuperso_modo_save_skin'})
+					table.insert(elements, {label = 'تعمیر ماشین',								value = 'menuperso_modo_vehicle_repair'})
+					table.insert(elements, {label = 'اسپان کردن ماشین',								value = 'menuperso_modo_vehicle_spawn'})
+					table.insert(elements, {label = 'رفتن رو پلیر',    						value = 'menuperso_modo_tp_toplayer'})
+					table.insert(elements, {label = 'آوردن پلیر',             						value = 'menuperso_modo_tp_playertome'})
+					table.insert(elements, {label = 'تلپورت رو پین نقشه',						value = 'menuperso_modo_tp_marcker'})
+					table.insert(elements, {label = 'تلپورت روی مختصات',					value = 'menuperso_modo_tp_pos'})
+					table.insert(elements, {label = 'حالت پرواز',									value = 'menuperso_modo_no_clip'})
+					table.insert(elements, {label = 'حالت نامرئی',									value = 'menuperso_modo_godmode'})
+					table.insert(elements, {label = 'حالت روح',										value = 'menuperso_modo_mode_fantome'})
+					table.insert(elements, {label = 'برگردوندن ماشین',						value = 'menuperso_modo_vehicle_flip'})
+					table.insert(elements, {label = 'دادن پول',								value = 'menuperso_modo_give_money'})
+					table.insert(elements, {label = 'دادن پول (بانک)',							value = 'menuperso_modo_give_moneybank'})
+					table.insert(elements, {label = 'دادن پول (پول سیاه)',					value = 'menuperso_modo_give_moneydirty'})
+					-- table.insert(elements, {label = 'Makhfi/Neshoon dadan Mokhtasat',			value = 'menuperso_modo_showcoord'})
+					-- table.insert(elements, {label = 'Makhfi/Neshoon dadan Esme Player',			value = 'menuperso_modo_showname'})
+					table.insert(elements, {label = 'پر کردن جون پلیر',						value = 'menuperso_modo_heal_player'})
+					table.insert(elements, {label = 'زیر نظر گرفتن پلیر',							value = 'menuperso_modo_spec_player'})
+					table.insert(elements, {label = 'تغیر قیافه',							value = 'menuperso_modo_changer_skin'})
+					table.insert(elements, {label = 'ذخیره قیافه',							value = 'menuperso_modo_save_skin'})
 				end
 
 				if data.current.value == 'menuperso_modo' then
 					ESX.UI.Menu.Open(
 						'default', GetCurrentResourceName(), 'menuperso_modo',
 						{
-							title    = 'Modération',
-							align    = 'top-left',
+							title    = 'بخش ادمینی',
+							align    = 'top-right',
 							elements = elements
 						},
 						function(data2, menu2)
@@ -254,16 +253,16 @@ function OpenPersonnelMenu()
 	
 					local elements = {}
 					
-					table.insert(elements, {label = 'Inventaire',             					value = 'menuperso_moi_inventaire'})
-					table.insert(elements, {label = 'Mes factures',							value = 'menuperso_moi_factures'})
-					table.insert(elements, {label = 'Mes Accessoires',							value = 'menuperso_moi_accessoire'})						
+					-- table.insert(elements, {label = 'Inventaire',             					value = 'menuperso_moi_inventaire'})
+					-- table.insert(elements, {label = 'Mes factures',							value = 'menuperso_moi_factures'})
+					table.insert(elements, {label = 'لوازم من',							value = 'menuperso_moi_accessoire'})						
 
 					ESX.UI.Menu.Open(
 						
 						'default', GetCurrentResourceName(), 'menuperso_moi',
 						{
-							title    = 'Me concernant',
-							align    = 'top-left',
+							title    = 'اطلاعات من',
+							align    = 'top-right',
 							elements = elements
 						},
 						function(data2, menu2)
@@ -293,8 +292,8 @@ function OpenPersonnelMenu()
 					ESX.UI.Menu.Open(
 						'default', GetCurrentResourceName(), 'menuperso_actions',
 						{
-							title    = 'Actions',
-							align    = 'top-left',
+							title    = 'اجرای انیمیشن',
+							align    = 'top-right',
 							elements = {
 								{label = 'Annuler l\'animation',  value = 'menuperso_actions__annuler'},
 								--{label = 'Faire ses besoins [WIP]',     value = 'menuperso_actions_pipi'},
@@ -323,7 +322,7 @@ function OpenPersonnelMenu()
 									'default', GetCurrentResourceName(), 'menuperso_actions_Salute',
 									{
 										title    = 'Animations de salutations',
-										align    = 'top-left',
+										align    = 'top-right',
 										elements = {
 											{label = 'Saluer',  value = 'menuperso_actions_Salute_saluer'},
 											{label = 'Serrer la main',     value = 'menuperso_actions_Salute_serrerlamain'},
@@ -361,7 +360,7 @@ function OpenPersonnelMenu()
 									'default', GetCurrentResourceName(), 'menuperso_actions_Humor',
 									{
 										title    = 'Animations d\'humeurs',
-										align    = 'top-left',
+										align    = 'top-right',
 										elements = {
 											{label = 'Féliciter',  value = 'menuperso_actions_Humor_feliciter'},
 											{label = 'Super',     value = 'menuperso_actions_Humor_super'},
@@ -424,7 +423,7 @@ function OpenPersonnelMenu()
 									'default', GetCurrentResourceName(), 'menuperso_actions_Travail',
 									{
 										title    = 'Animations de travail',
-										align    = 'top-left',
+										align    = 'top-right',
 										elements = {
 											{label = 'Pêcheur',  value = 'menuperso_actions_Travail_pecheur'},
 											{label = 'Agriculteur',     value = 'menuperso_actions_Travail_agriculteur'},
@@ -467,7 +466,7 @@ function OpenPersonnelMenu()
 									'default', GetCurrentResourceName(), 'menuperso_actions_Festives',
 									{
 										title    = 'Animations festives',
-										align    = 'top-left',
+										align    = 'top-right',
 										elements = {
 											{label = 'Danser',  value = 'menuperso_actions_Festives_danser'},
 											{label = 'Jouer de la musique',     value = 'menuperso_actions_Festives_jouerdelamusique'},
@@ -505,7 +504,7 @@ function OpenPersonnelMenu()
 									'default', GetCurrentResourceName(), 'menuperso_actions_Others',
 									{
 										title    = 'Animations diverses',
-										align    = 'top-left',
+										align    = 'top-right',
 										elements = {
 											{label = 'Fumer une clope',     value = 'menuperso_actions_Others_fumeruneclope'},
 											{label = 'Faire des pompes',     value = 'menuperso_actions_Others_fairedespompes'},
@@ -616,13 +615,13 @@ function OpenPersonnelMenu()
 					ESX.UI.Menu.Open(
 						'default', GetCurrentResourceName(), 'menuperso_gpsrapide',
 						{
-							title    = 'GPS Rapide',
-							align    = 'top-left',
+							title    = 'مسیریابی سریع',
+							align    = 'top-right',
 							elements = {
-								{label = 'Pôle emploi',     value = 'menuperso_gpsrapide_poleemploi'},
-								{label = 'Comissariat principal',              value = 'menuperso_gpsrapide_comico'},
-								{label = 'Hôpital principal', value = 'menuperso_gpsrapide_hopital'},
-								{label = 'Concessionnaire',  value = 'menuperso_gpsrapide_concessionnaire'}
+								{label = 'آژانس کاریابی',     value = 'menuperso_gpsrapide_poleemploi'},
+								{label = 'اداره پلیس',              value = 'menuperso_gpsrapide_comico'},
+								{label = 'بیمارستان', value = 'menuperso_gpsrapide_hopital'},
+								{label = 'فروشگاه ماشین',  value = 'menuperso_gpsrapide_concessionnaire'}
 							},
 						},
 						function(data2, menu2)
@@ -668,13 +667,13 @@ function OpenPersonnelMenu()
 					ESX.UI.Menu.Open(
 						'default', GetCurrentResourceName(), 'menuperso_grade',
 						{
-							title    = 'Gestion d\'entreprise',
-							align    = 'top-left',
+							title    = 'بخش مدیریت کار',
+							align    = 'top-right',
 							elements = {
-								{label = 'Recruter',     value = 'menuperso_grade_recruter'},
-								{label = 'Virer',              value = 'menuperso_grade_virer'},
-								{label = 'Promouvoir', value = 'menuperso_grade_promouvoir'},
-								{label = 'Destituer',  value = 'menuperso_grade_destituer'}
+								{label = 'استخدام',     value = 'menuperso_grade_recruter'},
+								{label = 'اخراج کردن',              value = 'menuperso_grade_virer'},
+								{label = 'ارتقا درجه', value = 'menuperso_grade_promouvoir'},
+								{label = 'تنزل درجه',  value = 'menuperso_grade_destituer'}
 							},
 						},
 						function(data2, menu2)
@@ -685,13 +684,13 @@ function OpenPersonnelMenu()
 										local grade = 0
 										local closestPlayer, closestDistance = ESX.Game.GetClosestPlayer()
 									if closestPlayer == -1 or closestDistance > 3.0 then
-										ESX.ShowNotification("Aucun joueur à proximité")
+										ESX.ShowNotification("هیچ پلیری در این نزدیکی نیست")
 									else
 										TriggerServerEvent('NB:recruterplayer', GetPlayerServerId(closestPlayer), job,grade)
 									end
 
 								else
-									Notify("Vous n'avez pas les ~r~droits~w~.")
+									Notify("اجازه این کار را ندارید")
 
 								end
 								
@@ -703,13 +702,13 @@ function OpenPersonnelMenu()
 										local grade = 0
 										local closestPlayer, closestDistance = ESX.Game.GetClosestPlayer()
 									if closestPlayer == -1 or closestDistance > 3.0 then
-										ESX.ShowNotification("Aucun joueur à proximité")
+										ESX.ShowNotification("هیچ پلیری در این نزدیکی نیست")
 									else
 										TriggerServerEvent('NB:virerplayer', GetPlayerServerId(closestPlayer))
 									end
 
 								else
-									Notify("Vous n'avez pas les ~r~droits~w~.")
+									Notify("اجازه این کار را ندارید")
 
 								end
 								
@@ -720,13 +719,13 @@ function OpenPersonnelMenu()
 								if PlayerData.job.grade_name == 'boss' then
 										local closestPlayer, closestDistance = ESX.Game.GetClosestPlayer()
 									if closestPlayer == -1 or closestDistance > 3.0 then
-										ESX.ShowNotification("Aucun joueur à proximité")
+										ESX.ShowNotification("هیچ پلیری در این نزدیکی نیست")
 									else
 										TriggerServerEvent('NB:promouvoirplayer', GetPlayerServerId(closestPlayer))
 									end
 
 								else
-									Notify("Vous n'avez pas les ~r~droits~w~.")
+									Notify("اجازه این کار را ندارید")
 
 								end
 								
@@ -738,13 +737,13 @@ function OpenPersonnelMenu()
 								if PlayerData.job.grade_name == 'boss' then
 										local closestPlayer, closestDistance = ESX.Game.GetClosestPlayer()
 									if closestPlayer == -1 or closestDistance > 3.0 then
-										ESX.ShowNotification("Aucun joueur à proximité")
+										ESX.ShowNotification("هیچ پلیری در این نزدیکی نیست")
 									else
 										TriggerServerEvent('NB:destituerplayer', GetPlayerServerId(closestPlayer))
 									end
 
 								else
-									Notify("Vous n'avez pas les ~r~droits~w~.")
+									Notify("اجازه این کار را ندارید")
 
 								end
 								
@@ -842,7 +841,7 @@ function OpenVehiculeMenu()
 		{
 			img    = 'menu_vehicule',
 			-- title    = 'Véhicule',
-			align    = 'top-left',
+			align    = 'top-right',
 			elements = elements
 		},
 		function(data, menu)

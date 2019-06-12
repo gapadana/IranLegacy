@@ -30,9 +30,9 @@ Config.comico = {
 	z = 31.710563659668,
 }
 Config.hopital = {
-	x = 1150.1,
-	y = -1508.12,
-	z = 34.6926,
+	x = 293.16,
+	y = -584.64,
+	z = 43.18,
 }
 Config.concessionnaire = {
 	x = -44.385055541992,
