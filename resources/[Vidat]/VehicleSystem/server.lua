@@ -12,4 +12,4 @@ TriggerEvent("es:addGroupCommand", 'adminkey', "mod", function(source, args, use
 	TriggerClientEvent('VS:GiveAdminKey', source)
 end, function(source, args, user)
 	TriggerClientEvent('chat:addMessage', source, { args = { '^1SYSTEM', 'Insufficient Permissions.' } })
-end, {help = _U('command_restart')})
+end)
