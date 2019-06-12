@@ -97,6 +97,13 @@ function errorNotify()
 	})
 end
 
+RegisterNetEvent("VS:GiveAdminKey")
+AddEventHandler("VS:GiveAdminKey", function()
+	if IsPedInAnyVehicle(GetPlayerPed(-1), true) and not table.contains(vehicles, GetVehicleNumberPlateText(GetVehiclePedIsIn(GetPlayerPed(-1), true))) then
+		TriggerEvent('VS:GiveKeyPlate', GetVehicleNumberPlateText(GetVehiclePedIsIn(GetPlayerPed(-1), true)))
+	end
+end)
+
 RegisterNetEvent("VS:GiveKey")
 AddEventHandler("VS:GiveKey", function(vehicle)
 	local plate = GetVehicleNumberPlateText(vehicle)
