@@ -162,9 +162,10 @@ function MenuCloakRoom()
 				Config.Zones.VehicleSpawnPoint.Rot,
 				function(vehicle)
 					platenum = math.random(10000, 99999)
-					SetVehicleNumberPlateText(vehicle, "WAL" .. platenum)
-					MissionLivraisonSelect()
 					plaquevehicule = "WAL" .. platenum
+					SetVehicleNumberPlateText(vehicle, plaquevehicule)
+					TriggerEvent('VS:GiveKeyPlate', plaquevehicule)
+					MissionLivraisonSelect()
 					PlayerData.removeAccountMoney("black_money", "500") -- Cost $500 Dirty Money
 
 					if data.current.value == "phantom3" then
@@ -177,7 +178,6 @@ function MenuCloakRoom()
 							end
 						)
 					end
-					TriggerEvent('VS:GiveKeyPlate', plaquevehicule)
 					TaskWarpPedIntoVehicle(GetPlayerPed(-1), vehicle, -1)
 					
 				end
