@@ -17,6 +17,7 @@ local displayIDHeight = 1.1 --Height of ID above players head(starts at center b
 local red = 255
 local green = 255
 local blue = 255
+local cooldown = false
 
 ESX = nil
 isadmin = false
@@ -65,17 +66,22 @@ function DrawText3D(x,y,z, text)
 end
 
 Citizen.CreateThread(function()
+	
+	local ShowButtonHold = false
     while true do
 		local PlayerData = nil
-		local ShowButtonHold = false
 
 		if IsControlPressed(0, Keys['N7']) then
-			ShowButtonHold = true
-		else
-			ShowButtonHold = false
+			if not cooldown then
+				ShowButtonHold = true
+			end
 		end
 		if IsControlJustReleased(0, Keys['N7']) then
 			ShowButtonHold = false
+			if not cooldown then
+				cooldown = true
+				countDown()
+			end
 		end
 		if disableForPlayers then 
 			if ESX == nil then
@@ -93,8 +99,6 @@ Citizen.CreateThread(function()
 			end
 			for id = 0, 31 do
 				if  ((NetworkIsPlayerActive( id )) and GetPlayerPed( id ) ~= GetPlayerPed( -1 )) then
-					ped = GetPlayerPed( id )
-					blip = GetBlipFromEntity( ped ) 
 	 
 					x1, y1, z1 = table.unpack( GetEntityCoords( GetPlayerPed( -1 ), true ) )
 					x2, y2, z2 = table.unpack( GetEntityCoords( GetPlayerPed( id ), true ) )
@@ -116,7 +120,9 @@ Citizen.CreateThread(function()
 
 					if ((distance < playerNamesDist)) then
 						if (not (ignorePlayerNameDistance)) and ShowButtonHold then
-							sendAnnounce()
+							if not announced then
+								sendAnnounce()
+							end
 							if NetworkIsPlayerTalking(id) then
 								red = 0
 								green = 0
@@ -139,6 +145,7 @@ Citizen.CreateThread(function()
     end
 end)
 
+
 function sendAnnounce()
 	if not announced then
 		announced = true
@@ -146,7 +153,13 @@ function sendAnnounce()
 		Citizen.CreateThread(function()
 			Wait(5000)
 			announced = false
-			print ('test')
 		end)
 	end
+end
+
+function countDown()
+	Citizen.CreateThread(function()
+		Wait(5000)
+		cooldown = false
+	end)
 end

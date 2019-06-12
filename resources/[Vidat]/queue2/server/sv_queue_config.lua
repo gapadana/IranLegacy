@@ -23,7 +23,7 @@ Config.Priority = {
 
     ["steam:11000011a3f0a06"] = 50, --game_over streamer
 	["steam:11000013a9176d4"] = 50, --Emo streamer
-	
+    ["steam:1100001196679b9"] = 50, --zartosht streamer
 	
 
 
