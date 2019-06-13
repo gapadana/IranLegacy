@@ -556,13 +556,11 @@ function ToggleVehicleLock()
 	end
 	local plate = GetVehicleNumberPlateText(vehicle)
 	plate = string.gsub(plate, " ", "")
-	print("plate:", plate)
 	if not DoesEntityExist(vehicle) then
 		return
 	end
 	
 	for i=1, #myPlate, 1 do
-		print("plate2:", myPlate[i])
 		if myPlate[i] == plate then
 			
 			local lockStatus = GetVehicleDoorLockStatus(vehicle)
