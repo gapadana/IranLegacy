@@ -282,6 +282,9 @@ function OpenShopMenu ()
                             local newPlate     = GeneratePlate()
                             local vehicleProps = ESX.Game.GetVehicleProperties(vehicle)
                             vehicleProps.plate = newPlate
+							
+							TriggerEvent('VS:GiveKey', vehicle)
+							
                             SetVehicleNumberPlateText(vehicle, newPlate)
 
                             if Config.EnableOwnedVehicles then
@@ -319,7 +322,9 @@ function OpenShopMenu ()
                             local vehicleProps = ESX.Game.GetVehicleProperties(vehicle)
                             vehicleProps.plate = newPlate
                             SetVehicleNumberPlateText(vehicle, newPlate)
-
+							
+							TriggerEvent('VS:GiveKey', vehicle)
+							
                             TriggerServerEvent('esx_aircraftshop:setVehicleOwnedSociety', playerData.job.name, vehicleProps)
 
                             ESX.ShowNotification(_U('vehicle_purchased'))
@@ -358,6 +363,8 @@ function OpenShopMenu ()
                       vehicleProps.plate = newPlate
                       SetVehicleNumberPlateText(vehicle, newPlate)
 
+						TriggerEvent('VS:GiveKey', vehicle)
+					
                       if Config.EnableOwnedVehicles then
                         TriggerServerEvent('esx_aircraftshop:setVehicleOwned', vehicleProps)
                       end
@@ -643,6 +650,7 @@ function OpenPersonnalVehicleMenu ()
 			z = coords.z
 		  }, heading, function (vehicle)
 		  ESX.Game.SetVehicleProperties(vehicle, vehicleData)
+		  TriggerEvent('VS:GiveKey', vehicle)
           TaskWarpPedIntoVehicle(playerPed, vehicle, -1)
         end)
       end,
@@ -676,7 +684,7 @@ function OpenPopVehicleMenu ()
 
 			ESX.Game.SpawnVehicle(model, Config.Zones.ShopInside.Pos, Config.Zones.ShopInside.Heading, function (vehicle)
 				table.insert(LastVehicles, vehicle)
-
+				
 				for i=1, #Vehicles, 1 do
 					if model == Vehicles[i].model then
 						CurrentVehicleData = Vehicles[i]

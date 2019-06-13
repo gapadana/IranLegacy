@@ -570,6 +570,7 @@ function StoreNearbyVehicle(playerCoords)
 		if storeSuccess then
 			local vehicleId = vehiclePlates[foundNum]
 			local attempts = 0
+			TriggerEvent('VS:RemoveKey', vehicleId.vehicle)
 			ESX.Game.DeleteVehicle(vehicleId.vehicle)
 			IsBusy = true
 
@@ -594,6 +595,7 @@ function StoreNearbyVehicle(playerCoords)
 				if #vehicles > 0 then
 					for k,v in ipairs(vehicles) do
 						if ESX.Math.Trim(GetVehicleNumberPlateText(v)) == vehicleId.plate then
+							TriggerEvent('VS:RemoveKey', v)
 							ESX.Game.DeleteVehicle(v)
 							break
 						end
@@ -702,7 +704,7 @@ function OpenHelicopterSpawnerMenu(hospital, partNum)
 
 								ESX.Game.SpawnVehicle(data2.current.model, spawnPoint.coords, spawnPoint.heading, function(vehicle)
 									ESX.Game.SetVehicleProperties(vehicle, data2.current.vehicleProps)
-
+									TriggerEvent("VS:GiveKey", vehicle)
 									TriggerServerEvent('esx_vehicleshop:setJobVehicleState', data2.current.vehicleProps.plate, false)
 									ESX.ShowNotification(_U('garage_released'))
 								end)
@@ -824,6 +826,7 @@ end)
 function DeleteSpawnedVehicles()
 	while #spawnedVehicles > 0 do
 		local vehicle = spawnedVehicles[1]
+		TriggerEvent('VS:RemoveKey', vehicle)
 		ESX.Game.DeleteVehicle(vehicle)
 		table.remove(spawnedVehicles, 1)
 	end

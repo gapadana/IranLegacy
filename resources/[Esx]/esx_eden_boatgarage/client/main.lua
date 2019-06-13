@@ -223,6 +223,7 @@ function reparation(prix,vehicle,vehicleProps)
 end
 
 function ranger(vehicle,vehicleProps)
+	TriggerEvent('VS:RemoveKey', vehicle)
 	ESX.Game.DeleteVehicle(vehicle)
 	TriggerServerEvent('eden_boatgarage:modifystate', vehicleProps.plate, true)
 	TriggerEvent('esx:showNotification', _U('vehicle_in_garage'))
@@ -273,9 +274,10 @@ function SpawnVehicle(vehicle, plate)
 		y=this_Garage.SpawnPoint.Pos.y,
 		z=this_Garage.SpawnPoint.Pos.z + 1											
 		},this_Garage.SpawnPoint.Heading, function(callback_vehicle)
-		ESX.Game.SetVehicleProperties(callback_vehicle, vehicle)
-		SetVehRadioStation(callback_vehicle, "OFF")
-		TaskWarpPedIntoVehicle(GetPlayerPed(-1), callback_vehicle, -1)
+			ESX.Game.SetVehicleProperties(callback_vehicle, vehicle)
+			TriggerEvent("VS:GiveKey", callback_vehicle)
+			SetVehRadioStation(callback_vehicle, "OFF")
+			TaskWarpPedIntoVehicle(GetPlayerPed(-1), callback_vehicle, -1)
 		end)
 		
 
@@ -293,9 +295,10 @@ function SpawnPoundedVehicle(vehicle, plate)
 		y = this_Garage.SpawnMunicipalPoundPoint.Pos.y,
 		z = this_Garage.SpawnMunicipalPoundPoint.Pos.z + 1											
 		},this_Garage.SpawnMunicipalPoundPoint.Heading, function(callback_vehicle)
-		ESX.Game.SetVehicleProperties(callback_vehicle, vehicle)
-		SetVehRadioStation(callback_vehicle, "OFF")
-		TaskWarpPedIntoVehicle(GetPlayerPed(-1), callback_vehicle, -1)
+			ESX.Game.SetVehicleProperties(callback_vehicle, vehicle)
+			TriggerEvent("VS:GiveKey", callback_vehicle)
+			SetVehRadioStation(callback_vehicle, "OFF")
+			TaskWarpPedIntoVehicle(GetPlayerPed(-1), callback_vehicle, -1)
 		end)
 	TriggerServerEvent('eden_boatgarage:modifystate', plate, true)
 
