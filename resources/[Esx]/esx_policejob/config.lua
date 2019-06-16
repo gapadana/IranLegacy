@@ -37,9 +37,9 @@ Config.PoliceStations = {
 		  { name = 'WEAPON_BZGAS',            price = 20000 },
 			{ name = 'WEAPON_NIGHTSTICK',       price = 100 },
 			{ name = 'WEAPON_COMBATPISTOL',     price = 1000 },
-			{ name = 'WEAPON_MICROSMG',       	price = 2500 },
-			{ name = 'WEAPON_PUMPSHOTGUN',   	price = 5000 },
-			{ name = 'WEAPON_STUNGUN',          price = 500 },
+			--{ name = 'WEAPON_MICROSMG',       	price = 2500 },
+		--	{ name = 'WEAPON_PUMPSHOTGUN',   	price = 5000 },
+			--{ name = 'WEAPON_STUNGUN',          price = 500 },
 			{ name = 'WEAPON_CARBINERIFLE',     price = 10000},
 			{ name = 'WEAPON_SMG',				price = 4000}
 		},
@@ -97,6 +97,12 @@ Config.AuthorizedVehicles = {
 		{
 			model = 'police2',
 			label = 'Dodge Charger'
+			
+		},	
+		{
+			model = 'PBus',
+			label = 'Mashin Haml'
+			
 		},	
 	},
 
@@ -121,8 +127,8 @@ Config.AuthorizedVehicles = {
 			label = 'Ford Interceptor'
 		},
 		{
-			model = 'police4',
-			label = 'Ford Berline'
+			model = 'Sheriff2',
+			label = 'Offroad'
 		},
 	},
 
@@ -132,17 +138,14 @@ Config.AuthorizedVehicles = {
 			label = 'Dodge Charger'
 		},
     	{
-			model = 'police4',
-			label = 'Ford Berline'
+			model = 'Sheriff2',
+			label = 'Offroad'
 		},
 		{
 			model = 'police3',
 			label = 'Ford Interceptor'
 		},
-		{
-			model = '2015polstang',
-			label = 'Ford'
-		},
+		
 		{
 			model = 'polgs350',
 			label = 'Lexus'
@@ -155,12 +158,17 @@ Config.AuthorizedVehicles = {
 			label = 'Dodge Charger'
 		},
     	{
-			model = 'police4',
-			label = 'Ford Berline'
+			model = 'Sheriff2',
+			label = 'offroad'
 		},
 		{
 			model = 'police3',
 			label = 'Ford Interceptor'
+		},
+		
+		{
+			model = 'Riot',
+			label = 'Hamle'
 		},
 		{
 			model = '2015polstang',
