@@ -30,7 +30,6 @@ Citizen.CreateThread(function()
 						end
 
 						local toPercent = essence/0.142
-						print(5000/toPercent)
 
 						TaskPlayAnim(GetPlayerPed(-1),"weapon@w_sp_jerrycan","fire", 8.0, -8, -1, 49, 0, 0, 0, 0)
 						local done = false

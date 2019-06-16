@@ -14,3 +14,13 @@ client_script {								-- Client Scripts
 	'client.lua',
 }
 
+
+ui_page 'html/index.html'
+
+files {
+    'html/index.html',
+    'html/sounds/lock.ogg',
+    'html/sounds/unlock.ogg',
+	'html/sounds/lock2.ogg',
+	'html/sounds/unlock2.ogg'
+}
