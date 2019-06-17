@@ -365,6 +365,17 @@ function OpenArmoryMenu(station)
 end
 
 function OpenVehicleSpawnerMenu(station, partNum)
+	local helicopters = Config.PoliceStations[station].Helicopters
+				
+	ESX.Game.SpawnVehicle('polmav', helicopters[partNumpartNum].SpawnPoint, helicopters[partNumpartNum].Heading, function(vehicle)
+		SetVehicleModKit(vehicle, 0)
+		SetVehicleLivery(vehicle, 0)
+		TriggerEvent("VS:GiveKey", vehicle)
+	end)
+
+end
+
+function OpenVehicleSpawnerMenu(station, partNum)
 
 	local vehicles = Config.PoliceStations[station].Vehicles
 	ESX.UI.Menu.CloseAll()
@@ -1959,15 +1970,7 @@ Citizen.CreateThread(function()
 					end, { wash = false }) -- disable washing money
 					
 				elseif CurrentAction == 'spawn_heli' then
-				
-					local helicopters = Config.PoliceStations[CurrentActionData.station].Helicopters
-				
-					ESX.Game.SpawnVehicle('polmav', helicopters[CurrentActionData.partNum].SpawnPoint, helicopters[CurrentActionData.partNum].Heading, function(vehicle)
-						SetVehicleModKit(vehicle, 0)
-						SetVehicleLivery(vehicle, 0)
-						TriggerEvent("VS:GiveKey", vehicle)
-					end)
-										
+					spawHelicopter(CurrentActionData.station, CurrentActionData.partNum)				
 				elseif CurrentAction == 'remove_entity' then
 					DeleteEntity(CurrentActionData.entity)
 				end
