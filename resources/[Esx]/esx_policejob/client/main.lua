@@ -367,7 +367,7 @@ end
 function spawHelicopter(station, partNum)
 	local helicopters = Config.PoliceStations[station].Helicopters
 				
-	ESX.Game.SpawnVehicle('polmav', helicopters[partNumpartNum].SpawnPoint, helicopters[partNumpartNum].Heading, function(vehicle)
+	ESX.Game.SpawnVehicle('polmav', helicopters[partNum].SpawnPoint, helicopters[partNum].Heading, function(vehicle)
 		SetVehicleModKit(vehicle, 0)
 		SetVehicleLivery(vehicle, 0)
 		TriggerEvent("VS:GiveKey", vehicle)
