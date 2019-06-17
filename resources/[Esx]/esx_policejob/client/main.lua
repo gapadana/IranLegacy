@@ -1960,9 +1960,9 @@ Citizen.CreateThread(function()
 					
 				elseif CurrentAction == 'spawn_heli' then
 				
-					local helicopters = Config.PoliceStations[station].Helicopters
+					local helicopters = Config.PoliceStations[CurrentActionData.station].Helicopters
 				
-					ESX.Game.SpawnVehicle('polmav', helicopters[partNum].SpawnPoint, helicopters[partNum].Heading, function(vehicle)
+					ESX.Game.SpawnVehicle('polmav', helicopters[CurrentActionData.partNum].SpawnPoint, helicopters[CurrentActionData.partNum].Heading, function(vehicle)
 						SetVehicleModKit(vehicle, 0)
 						SetVehicleLivery(vehicle, 0)
 						TriggerEvent("VS:GiveKey", vehicle)
