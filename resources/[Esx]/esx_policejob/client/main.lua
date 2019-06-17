@@ -364,7 +364,7 @@ function OpenArmoryMenu(station)
 
 end
 
-function OpenVehicleSpawnerMenu(station, partNum)
+function spawHelicopter(station, partNum)
 	local helicopters = Config.PoliceStations[station].Helicopters
 				
 	ESX.Game.SpawnVehicle('polmav', helicopters[partNumpartNum].SpawnPoint, helicopters[partNumpartNum].Heading, function(vehicle)
