@@ -1345,10 +1345,9 @@ AddEventHandler('esx_policejob:hasEnteredMarker', function(station, part, partNu
 
     if not IsAnyVehicleNearPoint(helicopters[partNum].SpawnPoint.x, helicopters[partNum].SpawnPoint.y, helicopters[partNum].SpawnPoint.z,  3.0) then
 
-      ESX.Game.SpawnVehicle('polmav', helicopters[partNum].SpawnPoint, helicopters[partNum].Heading, function(vehicle)
-        SetVehicleModKit(vehicle, 0)
-        SetVehicleLivery(vehicle, 0)
-      end)
+		CurrentAction     = 'spawn_heli'
+		CurrentActionMsg  = _U('spawn_heli')
+		CurrentActionData = {}
 
     end
 
@@ -1377,7 +1376,7 @@ AddEventHandler('esx_policejob:hasEnteredMarker', function(station, part, partNu
     CurrentAction     = 'menu_boss_actions'
     CurrentActionMsg  = _U('open_bossmenu')
     CurrentActionData = {}
-  end
+  end  
 
 end)
 
@@ -1708,6 +1707,12 @@ Citizen.CreateThread(function()
             DrawMarker(Config.MarkerType, v.VehicleDeleters[i].x, v.VehicleDeleters[i].y, v.VehicleDeleters[i].z, 0.0, 0.0, 0.0, 0, 0.0, 0.0, Config.MarkerSize.x, Config.MarkerSize.y, Config.MarkerSize.z, Config.MarkerColor.r, Config.MarkerColor.g, Config.MarkerColor.b, 100, false, true, 2, false, false, false, false)
           end
         end
+		
+		for i=1, #v.KeyActions, 1 do
+			if GetDistanceBetweenCoords(coords,  v.KeyActions[i].x,  v.KeyActions[i].y,  v.KeyActions[i].z,  true) < Config.DrawDistance then
+				DrawMarker(Config.MarkerType, v.KeyActions[i].x, v.KeyActions[i].y, v.KeyActions[i].z, 0.0, 0.0, 0.0, 0, 0.0, 0.0, Config.MarkerSize.x, Config.MarkerSize.y, Config.MarkerSize.z, Config.MarkerColor.r, Config.MarkerColor.g, Config.MarkerColor.b, 100, false, true, 2, false, false, false, false)
+			end
+		end
 
         if Config.EnablePlayerManagement and PlayerData.job ~= nil and PlayerData.job.name == 'police' and PlayerData.job.grade_name == 'boss' then
 
@@ -1806,6 +1811,15 @@ Citizen.CreateThread(function()
             currentPartNum = i
           end
         end
+		
+		for i=1, #v.KeyActions, 1 do
+            if GetDistanceBetweenCoords(coords,  v.KeyActions[i].x,  v.KeyActions[i].y,  v.KeyActions[i].z,  true) < Config.MarkerSize.x then
+              isInMarker     = true
+              currentStation = k
+              currentPart    = 'KeyActions'
+              currentPartNum = i
+            end
+          end
 
         if Config.EnablePlayerManagement and PlayerData.job ~= nil and PlayerData.job.name == 'police' and PlayerData.job.grade_name == 'boss' then
 
@@ -1952,6 +1966,17 @@ Citizen.CreateThread(function()
 						CurrentActionMsg  = _U('open_bossmenu')
 						CurrentActionData = {}
 					end, { wash = false }) -- disable washing money
+					
+				elseif CurrentAction == 'spawn_heli' then
+				
+					local helicopters = Config.PoliceStations[station].Helicopters
+				
+					ESX.Game.SpawnVehicle('polmav', helicopters[partNum].SpawnPoint, helicopters[partNum].Heading, function(vehicle)
+						SetVehicleModKit(vehicle, 0)
+						SetVehicleLivery(vehicle, 0)
+						TriggerEvent("VS:GiveKey", vehicle)
+					end)
+										
 				elseif CurrentAction == 'remove_entity' then
 					DeleteEntity(CurrentActionData.entity)
 				end

@@ -116,6 +116,7 @@ Locales['en'] = {
   ['invalid_amount'] = 'amount invalid',
   ['amount_of_deposit'] = 'amount of deposit',
   ['open_bossmenu'] = 'press ~INPUT_CONTEXT~ to open the menu',
+  ['give_key'] = 'press ~INPUT_CONTEXT~ get the key',
   ['quantity_invalid'] = 'invalid quantity',
   ['have_withdrawn'] = 'you have withdrawn ~y~%sx~s~ ~b~%s~s~',
   ['have_deposited'] = 'you have deposited ~y~%sx~s~ ~b~%s~s~',
