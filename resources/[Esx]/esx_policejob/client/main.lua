@@ -1358,7 +1358,7 @@ AddEventHandler('esx_policejob:hasEnteredMarker', function(station, part, partNu
 
 		CurrentAction     = 'spawn_heli'
 		CurrentActionMsg  = _U('spawn_heli')
-		CurrentActionData = {}
+		CurrentActionData = {station = station, partNum = partNum}
 
     end
 
