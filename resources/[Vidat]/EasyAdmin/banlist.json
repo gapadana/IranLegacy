@@ -1,71 +1,36 @@
 [{
     "steam":"steam:11000011a2d18c6",
+    "identifier":"license:34efd4bd6e98869cdb7c2912d989c6ef7eefc81d",
     "expire":10444633200,
-    "reason":"Cheating ( Nickname: GeneralOmid )",
-    "identifier":"license:34efd4bd6e98869cdb7c2912d989c6ef7eefc81d"
+    "reason":"Cheating ( Nickname: GeneralOmid )"
   },{
     "steam":"steam:110000119cd45ac",
+    "identifier":"license:e0c8f15e3289419ce3e06d9802d29a049dd5ad2e",
     "expire":10444633200,
-    "reason":"Cheating ( Nickname: not_smurf )",
-    "identifier":"license:e0c8f15e3289419ce3e06d9802d29a049dd5ad2e"
+    "reason":"Cheating ( Nickname: not_smurf )"
   },{
     "steam":"steam:110000115660db0",
+    "identifier":"license:da3e7d6692d16ffa37c87f8426bafadf9ac7adc2",
     "expire":10444633200,
-    "reason":"Cheating ( Nickname: iTz_esi )",
-    "identifier":"license:da3e7d6692d16ffa37c87f8426bafadf9ac7adc2"
+    "reason":"Cheating ( Nickname: iTz_esi )"
   },{
     "steam":"steam:1100001150b3c4b",
+    "identifier":"license:2eb4cdb1cb762a2673421670afe1af7739ee033a",
     "expire":10444633200,
-    "reason":"Cheating ( Nickname: Poison Spy )",
-    "identifier":"license:2eb4cdb1cb762a2673421670afe1af7739ee033a"
+    "reason":"Cheating ( Nickname: Poison Spy )"
   },{
     "steam":"steam:11000011572aa1d",
+    "identifier":"license:00547e5309b92f0c76022a75b27927ea33c123a7",
     "expire":10444633200,
-    "reason":"Cheating ( Nickname: Why For Honor ? )",
-    "identifier":"license:00547e5309b92f0c76022a75b27927ea33c123a7"
-  },{
-    "steam":"steam:11000013562f0fd",
-    "expire":10444633200,
-    "reason":"Cheating ( Nickname: BamDaD )",
-    "identifier":"license:9ec5d43bccc526b0ab28b20c4bb102b1ad5b6f9a"
-  },{
-    "steam":"steam:1100001349d38d7",
-    "expire":10444633200,
-    "reason":"Cheating ( Nickname: joker_killer )",
-    "identifier":"license:9074492669f1a7535b22049e2fa1d8865685b46c"
-  },{
-    "steam":"steam:110000114c48e45",
-    "expire":10444633200,
-    "reason":"Cheating ( Nickname: DMC(Jack Pot) )",
-    "identifier":"license:d6ae3a40bc0f2908802a17b5730a2c1b550d9269"
-  },{
-    "steam":"steam:110000132670b6c",
-    "expire":10444633200,
-    "reason":"Cheating ( Nickname: sinaah210 )",
-    "identifier":"license:40db4cf7768724618c2e371a1f17a73cd5c421e4"
-  },{
-    "steam":"steam:11000013395762e",
-    "expire":10444633200,
-    "reason":"Cheating ( Nickname: arvin )",
-    "identifier":"license:2b6a70e8c5279a44e8bc0e5a2cf8ce529be2c631"
-  },{
-    "steam":"steam:11000011d382584",
-    "expire":10444633200,
-    "reason":"Cheating ( Nickname: Phantom X )",
-    "identifier":"license:d7efadf6f555301b53caa7ccfe0674df83c0814a"
-  },{
-    "steam":"steam:11000013b31f7e5",
-    "expire":10444633200,
-    "reason":"Cheating ( Nickname: 3_Dezh )",
-    "identifier":"license:3dcb67b1146e22685cac6626866fc887b6ff9003"
+    "reason":"Cheating ( Nickname: Why For Honor ? )"
   },{
     "steam":"steam:110000136325df3",
+    "identifier":"license:3a066fa04629726fb7ccfc8a967a9e5b14cfc6ca",
     "expire":10444633200,
-    "reason":"Cheating ( Nickname: 2pacwild )",
-    "identifier":"license:3a066fa04629726fb7ccfc8a967a9e5b14cfc6ca"
+    "reason":"Cheating ( Nickname: 2pacwild )"
   },{
-    "steam":"steam:1100001351202e8",
+    "steam":"steam:1100001331f8672",
+    "identifier":"license:fb63f975137eabea97caa13d4adacec2e4b5cb86",
     "expire":10444633200,
-    "reason":"Cheating ( Nickname: Ali beast csgoatse.com )",
-    "identifier":"license:1bae79f8e9b755c94aa6757c7b55516c639a061a"
+    "reason":"Cheating ( Nickname: mahdi_watson )"
   }]

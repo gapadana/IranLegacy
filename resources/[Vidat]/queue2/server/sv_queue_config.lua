@@ -13,7 +13,7 @@ Config.Priority = {
 	
 --	["steam:11000011ccefbfe"] = 75, -- stiker Admin 4/28
 
-
+    ["steam:11000011685b145"] = 75, -- sajjad
 
 	["steam:11000010b5a1f6c"] = 75, -- 
 	["steam:1100001196679b9"] = 75, -- Zartoshtkabir
