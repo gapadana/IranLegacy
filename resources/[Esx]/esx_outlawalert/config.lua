@@ -9,7 +9,7 @@ Config.Timer = 1
 Config.GunshotAlert = true
 
 -- Set if show when player do carjacking
-Config.CarJackingAlert = true
+Config.CarJackingAlert = false
 
 -- Set if show when player fight in melee
 Config.MeleeAlert = true

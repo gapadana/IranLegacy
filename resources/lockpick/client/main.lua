@@ -62,23 +62,31 @@ AddEventHandler('esx_lockpick:onUse', function()
 				Citizen.Wait(rand * 1000)
 
 				if CurrentAction ~= nil then
+					
 					SetVehicleDoorsLocked(vehicle, 1)
 					SetVehicleDoorsLockedForAllPlayers(vehicle, false)
 					ClearPedTasksImmediately(playerPed)
 		
 					ESX.ShowNotification(_U('vehicle_unlocked'))
 					
-					streetName,_ = GetStreetNameAtCoord(coords.x, coords.y, coords.z)
-					streetName = GetStreetNameFromHashKey(streetName)
+					callPolice = math.random(1, 100)
 					
-					local vehicleLabel = GetDisplayNameFromVehicleModel(GetEntityModel(vehicle))
-					vehicleLabel = GetLabelText(vehicleLabel)
-					
-					TriggerServerEvent('esx_outlawalert:carJackInProgress', {
-							x = coords.x,
-							y = coords.y,
-							z = coords.z
-						}, streetName, vehicleLabel, playerGender)
+					if callPolice <= 80 then
+						streetName,_ = GetStreetNameAtCoord(coords.x, coords.y, coords.z)
+						streetName = GetStreetNameFromHashKey(streetName)
+						
+						local vehicleLabel = GetDisplayNameFromVehicleModel(GetEntityModel(vehicle))
+						vehicleLabel = GetLabelText(vehicleLabel)
+						
+						TriggerServerEvent('esx_outlawalert:carJackInProgress', {
+								x = coords.x,
+								y = coords.y,
+								z = coords.z
+							}, streetName, vehicleLabel, playerGender)
+							
+						SetVehicleAlarm(vehicle, true)
+						StartVehicleAlarm(vehicle)
+					end
 					
 				end
 
@@ -100,7 +108,7 @@ AddEventHandler('esx_lockpick:onUse', function()
 
 			if CurrentAction ~= nil then
 				SetTextComponentFormat('STRING')
-				AddTextComponentString(_U('abort_hint'))
+				AddTextComponentString("".._U('abort_hint'))
 				DisplayHelpTextFromStringLabel(0, 0, 1, -1)
 
 				if IsControlJustReleased(0, Keys["X"]) then

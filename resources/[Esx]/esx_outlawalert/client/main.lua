@@ -86,7 +86,7 @@ end
 RegisterNetEvent('esx_outlawalert:carJackInProgress')
 AddEventHandler('esx_outlawalert:carJackInProgress', function(targetCoords)
 	if isPlayerWhitelisted then
-		if Config.CarJackingAlert then
+		-- if Config.CarJackingAlert then
 			local alpha = 250
 			local thiefBlip = AddBlipForRadius(targetCoords.x, targetCoords.y, targetCoords.z, Config.BlipJackingRadius)
 
@@ -106,7 +106,7 @@ AddEventHandler('esx_outlawalert:carJackInProgress', function(targetCoords)
 				end
 			end
 			
-		end
+		-- end
 	end
 end)
 
