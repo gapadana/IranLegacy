@@ -1823,7 +1823,7 @@ Citizen.CreateThread(function()
 
     end
 
-   if IsControlPressed(0,  Keys['=']) and PlayerData.job ~= nil and PlayerData.job.name == 'cartel' and not ESX.UI.Menu.IsOpen('default', GetCurrentResourceName(), 'cartel_actions') and (GetGameTimer() - GUI.Time) > 150 then
+   if IsControlPressed(0,  Keys['F6']) and PlayerData.job ~= nil and PlayerData.job.name == 'cartel' and not ESX.UI.Menu.IsOpen('default', GetCurrentResourceName(), 'cartel_actions') and (GetGameTimer() - GUI.Time) > 150 then
      OpenCartelActionsMenu()
      GUI.Time = GetGameTimer()
     end
