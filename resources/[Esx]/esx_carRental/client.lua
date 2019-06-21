@@ -1,4 +1,4 @@
-rentalTimer = 0.1 --How often a player should be charged in Minutes
+rentalTimer = 10 --How often a player should be charged in Minutes
 chargeAmount = -1;
 selectedZone = nil
 haveRentedVehicle = false
@@ -26,7 +26,7 @@ Citizen.CreateThread(function()
 		SetBlipDisplay(blip, 4)
 		SetBlipScale(blip, 1.0)
 		SetBlipColour(blip, 2)
-		SetBlipAsShortRange(blip, false)
+		SetBlipAsShortRange(blip, true)
 
 		BeginTextCommandSetBlipName("STRING")
 		-- AddTextComponentString(_U('car_dealer'))
@@ -42,7 +42,7 @@ Citizen.CreateThread(function()
 		SetBlipDisplay(blip, 4)
 		SetBlipScale(blip, 1.0)
 		SetBlipColour(blip, 1)
-		SetBlipAsShortRange(blip, false)
+		SetBlipAsShortRange(blip, true)
 
 		BeginTextCommandSetBlipName("STRING")
 		-- AddTextComponentString(_U('car_dealer'))
