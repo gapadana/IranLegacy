@@ -201,7 +201,7 @@ Config.Returns = {
 		Color = {r = 204, g = 0, b = 0},
 		Marker = 1
 	},
-	Parking = {	
+	Horseride = {	
 		Pos = {x = 660.6, y = 196.19, z = 93.97},
 		Size  = {x = 3.0, y = 3.0, z = 1.0},
 		Color = {r = 204, g = 0, b = 0},
