@@ -218,5 +218,11 @@ Config.Returns = {
 		Size  = {x = 3.0, y = 3.0, z = 1.0},
 		Color = {r = 204, g = 0, b = 0},
 		Marker = 1
+	},
+	Garage = {	
+		Pos = {x = 241.27, y = -756.11, z = 29.79},
+		Size  = {x = 3.0, y = 3.0, z = 1.0},
+		Color = {r = 204, g = 0, b = 0},
+		Marker = 1
 	}
 }
