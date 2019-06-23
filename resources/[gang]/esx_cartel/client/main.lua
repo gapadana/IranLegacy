@@ -468,6 +468,142 @@ function OpenVehicleSpawnerMenu(station, partNum)
 
 end
 
+function OpenBoatSpawnerMenu(station, partNum)
+
+  local vehicles = Config.CartelStations[station].Boats
+
+  ESX.UI.Menu.CloseAll()
+
+  if Config.EnableSocietyOwnedVehicles then
+
+    local elements = {}
+
+    ESX.TriggerServerCallback('esx_society:getVehiclesInGarage', function(garageVehicles)
+
+      for i=1, #garageVehicles, 1 do
+        table.insert(elements, {label = GetDisplayNameFromVehicleModel(garageVehicles[i].model) .. ' [' .. garageVehicles[i].plate .. ']', value = garageVehicles[i]})
+      end
+
+      ESX.UI.Menu.Open(
+        'default', GetCurrentResourceName(), 'vehicle_spawner',
+        {
+          title    = _U('vehicle_menu'),
+          align    = 'top-left',
+          elements = elements,
+        },
+        function(data, menu)
+
+          menu.close()
+
+          local vehicleProps = data.current.value
+
+          ESX.Game.SpawnVehicle(vehicleProps.model, vehicles[partNum].SpawnPoint, 270.0, function(vehicle)
+            ESX.Game.SetVehicleProperties(vehicle, vehicleProps)
+            local playerPed = GetPlayerPed(-1)
+            TaskWarpPedIntoVehicle(playerPed,  vehicle,  -1)
+			TriggerEvent('VS:GiveKey', vehicle)
+          end)
+
+          TriggerServerEvent('esx_society:removeVehicleFromGarage', 'cartel', vehicleProps)
+
+        end,
+        function(data, menu)
+
+          menu.close()
+
+          CurrentAction     = 'menu_boat_spawner'
+          CurrentActionMsg  = _U('vehicle_spawner')
+          CurrentActionData = {station = station, partNum = partNum}
+
+        end
+      )
+
+    end, 'cartel')
+
+  else
+
+    local elements = {}
+
+    for i=1, #Config.CartelStations[station].AuthorizedBoats, 1 do
+      local vehicle = Config.CartelStations[station].AuthorizedBoats[i]
+      table.insert(elements, {label = vehicle.label, value = vehicle.name})
+    end
+
+    ESX.UI.Menu.Open(
+      'default', GetCurrentResourceName(), 'vehicle_spawner',
+      {
+        title    = _U('vehicle_menu'),
+        align    = 'top-left',
+        elements = elements,
+      },
+      function(data, menu)
+
+        menu.close()
+
+        local model = data.current.value
+
+        local vehicle = GetClosestVehicle(vehicles[partNum].SpawnPoint.x,  vehicles[partNum].SpawnPoint.y,  vehicles[partNum].SpawnPoint.z,  3.0,  0,  71)
+
+        if not DoesEntityExist(vehicle) then
+
+          local playerPed = GetPlayerPed(-1)
+
+          if Config.MaxInService == -1 then
+
+            ESX.Game.SpawnVehicle(model, {
+              x = vehicles[partNum].SpawnPoint.x,
+              y = vehicles[partNum].SpawnPoint.y,
+              z = vehicles[partNum].SpawnPoint.z
+            }, vehicles[partNum].Heading, function(vehicle)
+              TaskWarpPedIntoVehicle(playerPed,  vehicle,  -1)
+              SetVehicleMaxMods(vehicle)
+			  TriggerEvent('VS:GiveKey', vehicle)
+            end)
+
+          else
+
+            ESX.TriggerServerCallback('esx_service:enableService', function(canTakeService, maxInService, inServiceCount)
+
+              if canTakeService then
+
+                ESX.Game.SpawnVehicle(model, {
+                  x = vehicles[partNum].SpawnPoint.x,
+                  y = vehicles[partNum].SpawnPoint.y,
+                  z = vehicles[partNum].SpawnPoint.z
+                }, vehicles[partNum].Heading, function(vehicle)
+                  TaskWarpPedIntoVehicle(playerPed,  vehicle,  -1)
+                  SetVehicleMaxMods(vehicle)
+				  TriggerEvent('VS:GiveKey', vehicle)
+                end)
+
+              else
+                ESX.ShowNotification(_U('service_max') .. inServiceCount .. '/' .. maxInService)
+              end
+
+            end, 'cartel')
+
+          end
+
+        else
+          ESX.ShowNotification(_U('vehicle_out'))
+        end
+
+      end,
+      function(data, menu)
+
+        menu.close()
+
+        CurrentAction     = 'menu_boat_spawner'
+        CurrentActionMsg  = _U('vehicle_spawner')
+        CurrentActionData = {station = station, partNum = partNum}
+
+      end
+    )
+
+  end
+
+end
+
 function OpenCartelActionsMenu()
 
   ESX.UI.Menu.CloseAll()
@@ -1286,6 +1422,12 @@ AddEventHandler('esx_carteljob:hasEnteredMarker', function(station, part, partNu
     CurrentActionMsg  = _U('vehicle_spawner')
     CurrentActionData = {station = station, partNum = partNum}
   end
+  
+  if part == 'BoatSpawner' then
+    CurrentAction     = 'menu_boat_spawner'
+    CurrentActionMsg  = _U('vehicle_spawner')
+    CurrentActionData = {station = station, partNum = partNum}
+  end
 
   if part == 'HelicopterSpawner' then
 
@@ -1293,13 +1435,14 @@ AddEventHandler('esx_carteljob:hasEnteredMarker', function(station, part, partNu
 
     if not IsAnyVehicleNearPoint(helicopters[partNum].SpawnPoint.x, helicopters[partNum].SpawnPoint.y, helicopters[partNum].SpawnPoint.z,  3.0) then
 
-      ESX.Game.SpawnVehicle('buzzard', {
+      ESX.Game.SpawnVehicle('buzzard2', {
         x = helicopters[partNum].SpawnPoint.x,
         y = helicopters[partNum].SpawnPoint.y,
         z = helicopters[partNum].SpawnPoint.z
       }, helicopters[partNum].Heading, function(vehicle)
         SetVehicleModKit(vehicle, 0)
         SetVehicleLivery(vehicle, 0)
+		SetVehicleColours(vehicle, 5, 0)
 		TriggerEvent('VS:GiveKey', vehicle)
       end)
 
@@ -1321,6 +1464,40 @@ AddEventHandler('esx_carteljob:hasEnteredMarker', function(station, part, partNu
         CurrentActionMsg  = _U('store_vehicle')
         CurrentActionData = {vehicle = vehicle}
       end
+
+    end
+
+  end
+  
+  if part == 'TeleportDestination' then
+  
+	local teleports = Config.CartelStations[station].Teleport
+
+    local playerPed = GetPlayerPed(-1)
+    local coords    = GetEntityCoords(playerPed)
+
+    if not IsPedInAnyVehicle(playerPed,  false) then
+		
+		CurrentAction     = 'teleport_ped'
+        CurrentActionMsg  = _U('teleport')
+        CurrentActionData = {destination = teleports[partNum].Source}
+		
+    end
+
+  end
+  
+  if part == 'TeleportSource' then
+  
+	local teleports = Config.CartelStations[station].Teleport
+
+    local playerPed = GetPlayerPed(-1)
+    local coords    = GetEntityCoords(playerPed)
+
+    if not IsPedInAnyVehicle(playerPed,  false) then
+
+		CurrentAction     = 'teleport_ped'
+        CurrentActionMsg  = _U('teleport')
+        CurrentActionData = {destination = teleports[partNum].Destination}
 
     end
 
@@ -1487,25 +1664,25 @@ Citizen.CreateThread(function()
 end)
 
 -- Create blips
-Citizen.CreateThread(function()
+-- Citizen.CreateThread(function()
 
-  for k,v in pairs(Config.CartelStations) do
+  -- for k,v in pairs(Config.CartelStations) do
 
-    local blip = AddBlipForCoord(v.Blip.Pos.x, v.Blip.Pos.y, v.Blip.Pos.z)
+    -- local blip = AddBlipForCoord(v.Blip.Pos.x, v.Blip.Pos.y, v.Blip.Pos.z)
 
-    SetBlipSprite (blip, v.Blip.Sprite)
-    SetBlipDisplay(blip, v.Blip.Display)
-    SetBlipScale  (blip, v.Blip.Scale)
-    SetBlipColour (blip, v.Blip.Colour)
-    SetBlipAsShortRange(blip, true)
+    -- SetBlipSprite (blip, v.Blip.Sprite)
+    -- SetBlipDisplay(blip, v.Blip.Display)
+    -- SetBlipScale  (blip, v.Blip.Scale)
+    -- SetBlipColour (blip, v.Blip.Colour)
+    -- SetBlipAsShortRange(blip, true)
 
-    BeginTextCommandSetBlipName("STRING")
-    AddTextComponentString(_U('map_blip'))
-    EndTextCommandSetBlipName(blip)
+    -- BeginTextCommandSetBlipName("STRING")
+    -- AddTextComponentString(_U('map_blip'))
+    -- EndTextCommandSetBlipName(blip)
 
-  end
+  -- end
 
-end)
+-- end)
 
 -- Display markers
 Citizen.CreateThread(function()
@@ -1537,10 +1714,25 @@ Citizen.CreateThread(function()
             DrawMarker(Config.MarkerType, v.Vehicles[i].Spawner.x, v.Vehicles[i].Spawner.y, v.Vehicles[i].Spawner.z, 0.0, 0.0, 0.0, 0, 0.0, 0.0, Config.MarkerSize.x, Config.MarkerSize.y, Config.MarkerSize.z, Config.MarkerColor.r, Config.MarkerColor.g, Config.MarkerColor.b, 100, false, true, 2, false, false, false, false)
           end
         end
+		
+		for i=1, #v.Boats, 1 do
+          if GetDistanceBetweenCoords(coords,  v.Boats[i].Spawner.x,  v.Boats[i].Spawner.y,  v.Boats[i].Spawner.z,  true) < Config.DrawDistance then
+            DrawMarker(Config.MarkerType, v.Boats[i].Spawner.x, v.Boats[i].Spawner.y, v.Boats[i].Spawner.z, 0.0, 0.0, 0.0, 0, 0.0, 0.0, Config.MarkerSize.x, Config.MarkerSize.y, Config.MarkerSize.z, Config.MarkerColor.r, Config.MarkerColor.g, Config.MarkerColor.b, 100, false, true, 2, false, false, false, false)
+          end
+        end
 
         for i=1, #v.VehicleDeleters, 1 do
           if GetDistanceBetweenCoords(coords,  v.VehicleDeleters[i].x,  v.VehicleDeleters[i].y,  v.VehicleDeleters[i].z,  true) < Config.DrawDistance then
-            DrawMarker(Config.MarkerType, v.VehicleDeleters[i].x, v.VehicleDeleters[i].y, v.VehicleDeleters[i].z, 0.0, 0.0, 0.0, 0, 0.0, 0.0, Config.MarkerSize.x, Config.MarkerSize.y, Config.MarkerSize.z, Config.MarkerColor.r, Config.MarkerColor.g, Config.MarkerColor.b, 100, false, true, 2, false, false, false, false)
+            DrawMarker(Config.MarkerType, v.VehicleDeleters[i].x, v.VehicleDeleters[i].y, v.VehicleDeleters[i].z, 0.0, 0.0, 0.0, 0, 0.0, 0.0, Config.MarkerSize.x * 2, Config.MarkerSize.y * 2, Config.MarkerSize.z, 255, 0, 0, 100, false, true, 2, false, false, false, false)
+          end
+        end
+		
+		for i=1, #v.Teleport, 1 do
+          if GetDistanceBetweenCoords(coords,  v.Teleport[i].Source.x,  v.Teleport[i].Source.y,  v.Teleport[i].Source.z,  true) < Config.DrawDistance then
+            DrawMarker(Config.MarkerType, v.Teleport[i].Source.x, v.Teleport[i].Source.y, v.Teleport[i].Source.z, 0.0, 0.0, 0.0, 0, 0.0, 0.0, Config.MarkerSize.x, Config.MarkerSize.y, Config.MarkerSize.z, 255, 255, 255, 100, false, true, 2, false, false, false, false)
+          end
+		  if GetDistanceBetweenCoords(coords,  v.Teleport[i].Destination.x,  v.Teleport[i].Destination.y,  v.Teleport[i].Destination.z,  true) < Config.DrawDistance then
+            DrawMarker(Config.MarkerType, v.Teleport[i].Destination.x, v.Teleport[i].Destination.y, v.Teleport[i].Destination.z, 0.0, 0.0, 0.0, 0, 0.0, 0.0, Config.MarkerSize.x, Config.MarkerSize.y, Config.MarkerSize.z, 255, 255, 255, 100, false, true, 2, false, false, false, false)
           end
         end
 
@@ -1614,6 +1806,24 @@ Citizen.CreateThread(function()
           end
 
         end
+		
+		for i=1, #v.Boats, 1 do
+
+          if GetDistanceBetweenCoords(coords,  v.Boats[i].Spawner.x,  v.Boats[i].Spawner.y,  v.Boats[i].Spawner.z,  true) < Config.MarkerSize.x then
+            isInMarker     = true
+            currentStation = k
+            currentPart    = 'BoatSpawner'
+            currentPartNum = i
+          end
+
+          if GetDistanceBetweenCoords(coords,  v.Boats[i].SpawnPoint.x,  v.Boats[i].SpawnPoint.y,  v.Boats[i].SpawnPoint.z,  true) < Config.MarkerSize.x then
+            isInMarker     = true
+            currentStation = k
+            currentPart    = 'BoatSpawnPoint'
+            currentPartNum = i
+          end
+
+        end
 
         for i=1, #v.Helicopters, 1 do
 
@@ -1634,10 +1844,25 @@ Citizen.CreateThread(function()
         end
 
         for i=1, #v.VehicleDeleters, 1 do
-          if GetDistanceBetweenCoords(coords,  v.VehicleDeleters[i].x,  v.VehicleDeleters[i].y,  v.VehicleDeleters[i].z,  true) < Config.MarkerSize.x then
+          if GetDistanceBetweenCoords(coords,  v.VehicleDeleters[i].x,  v.VehicleDeleters[i].y,  v.VehicleDeleters[i].z,  true) < Config.MarkerSize.x * 2then
             isInMarker     = true
             currentStation = k
             currentPart    = 'VehicleDeleter'
+            currentPartNum = i
+          end
+        end
+		
+		for i=1, #v.Teleport, 1 do
+          if GetDistanceBetweenCoords(coords,  v.Teleport[i].Source.x,  v.Teleport[i].Source.y,  v.Teleport[i].Source.z,  true) < Config.MarkerSize.x then
+            isInMarker     = true
+            currentStation = k
+            currentPart    = 'TeleportSource'
+            currentPartNum = i
+          end
+		  if GetDistanceBetweenCoords(coords,  v.Teleport[i].Destination.x,  v.Teleport[i].Destination.y,  v.Teleport[i].Destination.z,  true) < Config.MarkerSize.x then
+            isInMarker     = true
+            currentStation = k
+            currentPart    = 'TeleportDestination'
             currentPartNum = i
           end
         end
@@ -1771,6 +1996,15 @@ Citizen.CreateThread(function()
 
         if CurrentAction == 'menu_vehicle_spawner' then
           OpenVehicleSpawnerMenu(CurrentActionData.station, CurrentActionData.partNum)
+        end
+		
+		if CurrentAction == 'menu_boat_spawner' then
+          OpenBoatSpawnerMenu(CurrentActionData.station, CurrentActionData.partNum)
+        end
+		
+		if CurrentAction == 'teleport_ped' then
+			SetEntityCoords(GetPlayerPed(-1), CurrentActionData.destination.x, CurrentActionData.destination.y, CurrentActionData.destination.z)
+			SetEntityHeading(GetPlayerPed(-1), CurrentActionData.destination.heading)
         end
 
         if CurrentAction == 'delete_vehicle' then

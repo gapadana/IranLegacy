@@ -95,7 +95,7 @@ Config.AuthorizedVehicles = {
 
 	recruit = {
 		{
-			model = 'police2',
+			model = 'police',
 			label = 'Dodge Charger'
 			
 		},	
@@ -108,7 +108,7 @@ Config.AuthorizedVehicles = {
 
 	officer = {
     	{
-			model = 'police2',
+			model = 'police',
 			label = 'Dodge Charger'
 		},	
 		{

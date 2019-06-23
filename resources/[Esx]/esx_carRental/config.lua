@@ -65,30 +65,30 @@ Config.RentLocation = {
 		}
 	},
 	Parking = {	
-		Pos = {x = 109.73, y = -1089.52, z = 28.28},
+		Pos = {x = 225.39, y = -1512.07, z = 28.27},
 		Size  = {x = 1.5, y = 1.5, z = 1.0},
 		Color = {r = 0, g = 204, b = 0},
 		Marker = 1,
 		SpawnPoint = {
 			part1 = {
-				Pos = {x = 117.57, y = -1082.19, z = 28.3},
+				Pos = {x = 232.27, y = -1512.4, z = 28.3},
 				Color = {r=0,g=255,b=0},
 				Size  = {x = 3.0, y = 3.0, z = 1.0},
-				Heading = 0.0,
+				Heading = 223.5,
 				Marker = 0		
 			},
 			part2 = {
-				Pos = {x = 121.34, y = -1082.04, z = 28.3},
+				Pos = {x = 234.83, y = -1510.1, z = 28.3},
 				Color = {r=0,g=255,b=0},
 				Size  = {x = 3.0, y = 3.0, z = 1.0},
-				Heading = 0.0,
+				Heading = 223.5,
 				Marker = 0		
 			},
 			part3 = {
-				Pos = {x = 124.9, y = -1082.4, z = 28.3},
+				Pos = {x = 237.52, y = -1507.74, z = 28.3},
 				Color = {r=0,g=255,b=0},
 				Size  = {x = 3.0, y = 3.0, z = 1.0},
-				Heading = 0.0,
+				Heading = 223.5,
 				Marker = 0		
 			}
 		}
@@ -196,7 +196,7 @@ Config.Returns = {
 		Marker = 1
 	},
 	Parking = {	
-		Pos = {x = 135.19, y = -1051.31, z = 28.14},
+		Pos = {x = 248.18, y = -1511.96, z = 28.11},
 		Size  = {x = 3.0, y = 3.0, z = 1.0},
 		Color = {r = 204, g = 0, b = 0},
 		Marker = 1

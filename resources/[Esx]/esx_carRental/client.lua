@@ -131,6 +131,7 @@ Citizen.CreateThread(function()
     menu2:AddItem(return1) 
 	local return2 = NativeUI.CreateItem("Tahvil Khodro bedoone khodro $10000", "")
     menu2:AddItem(return2)
+	menu2:CurrentSelection(0)
     menu2.OnItemSelect = function(sender, item, index)
 		if not haveRentedVehicle then
 			TriggerEvent("pNotify:SendNotification",{
@@ -203,6 +204,7 @@ Citizen.CreateThread(function()
     menu:AddItem(motorRent)
 	local bikeRent = NativeUI.CreateItem("Ejare Docharkhe - 100$", "")
     menu:AddItem(bikeRent)
+	menu:CurrentSelection(0)
     menu.OnItemSelect = function(sender, item, index)
 		if haveRentedVehicle then
 			TriggerEvent("pNotify:SendNotification",{

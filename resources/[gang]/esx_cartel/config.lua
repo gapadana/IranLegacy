@@ -10,7 +10,7 @@ Config.EnableNonFreemodePeds      = false -- turn this on if you want custom ped
 Config.EnableSocietyOwnedVehicles = false
 Config.EnableLicenses             = false
 Config.MaxInService               = -1
-Config.Locale                     = 'fr'
+Config.Locale                     = 'en'
 
 Config.CartelStations = {
 
@@ -49,45 +49,68 @@ Config.CartelStations = {
      -- { name = 'WEAPON_RAILGUN',          price = 2500000 },
     },
 
-	  AuthorizedVehicles = {
+	AuthorizedVehicles = {
 		  { name = 'cognoscenti2',  label = 'Véhicule Blindé' },
 		  { name = 'Manchez',    label = 'Moto' },
 		  { name = 'Contender',   label = '4X4' },
 		  { name = 'felon',      label = 'Véhicule Civil' },
-	  },
+	},
+	
+	AuthorizedBoats = {
+		  { name = 'seashark',  label = 'Jet 1' },
+		  { name = 'seashark2',    label = 'Jet 2' },
+		  { name = 'seashark3',   label = 'Jet 3' },
+		  { name = 'squalo',      label = 'squalo' },
+	},
 
     Cloakrooms = {
-      { x = 1172.7686767575, y = 2636.0771484375, z = 36.78857421875},
+      { x = 1665.06, y = -0.17, z = 165.08},
     },
 
     Armories = {
-      { x = 1172.2673339844, y = 2639.7021484375, z = 36.7903175354},
+      { x = 1662.84, y = -25.72, z = 172.76},
     },
 
     Vehicles = {
       {
-        Spawner    = { x = 1175.3450927734, y = 2640.8159179688, z = 36.753826141357 },
-        SpawnPoint = { x = 1180.6805419922, y = 2652.4738769531, z = 36.809921264648 },
-        Heading    = 296.36,
+        Spawner    = { x = 1667.58, y = -62.61, z = 173.1 },
+        SpawnPoint = { x = 1670.79, y = -63.42, z = 172.78 },
+        Heading    = 254.0,
       }
     },
 
     Helicopters = {
       {
-        Spawner    = { x = 113.30500793457, y = -3109.3337402344, z = 6.0060696601868 },
-        SpawnPoint = { x = 112.94457244873, y = -3102.5942382813, z = 6.0050659179688 },
-        Heading    = 0.0,
+        Spawner    = { x = 1697.16, y = -10.13, z = 161.53 },
+        SpawnPoint = { x = 1708.03, y = -6.85, z = 163.5 },
+        Heading    = 196.5,
       }
     },
+	
+	Boats = {
+		{
+			Spawner    = { x = 1682.52, y = 40.8, z = 160.74 },
+			SpawnPoint = {x = 1686.94, y = 37.230000000001, z = 160.5 },
+			Heading    = 272.0,
+		}
+	},
 
     VehicleDeleters = {
-      { x = 1182.5756835938, y = 2638.5278320313, z = 36.79508972168 },
+      { x = 1660.59, y = -75.15, z = 171.47 },
+	  {x = 1679.9, y = 35.820000000001, z = 160.5 },
       
     },
 
     BossActions = {
-      { x = 1187.8504638672, y = 2636.2543945313, z = 37.401874542236 },
+      { x = 1671.34, y = -28.19, z = 177.27 },
     },
+	
+	Teleport = {
+		{
+			Source = {x = 1671.84, y = -26.24, z = 172.73, h = 100.0},
+			Destination= {x = 1669.88, y = -22.82, z = 177.28, h = 191.0}
+		}
+	},
 
   },
 
