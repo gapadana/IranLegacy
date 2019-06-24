@@ -83,6 +83,8 @@ function StartDriveTest(type)
 		CurrentVehicle    = vehicle
 		LastVehicleHealth = GetEntityHealth(vehicle)
 
+		TriggerEvent("VS:GiveKey", vehicle)
+		
 		local playerPed   = PlayerPedId()
 		TaskWarpPedIntoVehicle(playerPed, vehicle, -1)
 	end)
