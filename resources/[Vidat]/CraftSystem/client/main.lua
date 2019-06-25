@@ -52,6 +52,7 @@ function startEscToStop()
 end
 
 function craftItem(item, isItemJob)
+	stopped = false
 	ESX.TriggerServerCallback( "CS:DoesHaveNeededItems", function(satisfing)
 		if satisfing then
 			Citizen.CreateThread(function()
