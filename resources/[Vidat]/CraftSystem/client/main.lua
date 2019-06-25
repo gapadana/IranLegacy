@@ -51,7 +51,7 @@ function startEscToStop()
 	end)
 end
 
-function craftItem(item)
+function craftItem(item, isItemJob)
 	ESX.TriggerServerCallback( "CS:DoesHaveNeededItems", function(satisfing)
 		if satisfing then
 			Citizen.CreateThread(function()
@@ -86,17 +86,26 @@ function craftItem(item)
 					end
 				end, GetPlayerServerId(PlayerId()), item.Needs)
 				Wait(1 * 1000)
-				if not item.weapon then
-					TriggerServerEvent('CS:AddItem', item.name, 1)
+				rand = math.random(1, 100)
+				chance = item.chance * 100
+				if isItemJob then
+					chance = 100
+				end
+				if rand <= chance then
+					if not item.weapon then
+						TriggerServerEvent('CS:AddItem', item.name, 1)
+					else
+						TriggerServerEvent('CS:AddWeapon', item.name, 1)
+					end
 				else
-					TriggerServerEvent('CS:AddWeapon', item.name, 1)
+					ESX.ShowNotification("Movafagh nashodid")
 				end
 				ClearPedTasksImmediately(GetPlayerPed(-1))
 				EnableAllControlActions(0)
 				crafting = false
 			end)
 		else
-			ESX.ShowNotification("Manabe mored niaz ra nadarid2")
+			ESX.ShowNotification("Manabe mored niaz ra nadarid")
 		end
 	end, GetPlayerServerId(PlayerId()), item.Needs)
 end
@@ -131,6 +140,7 @@ function jobChanged()
 	number = 1
 	local items = {}
 	local itemsData = {}
+	local itemJobs = {}
 	
 	for _,item in pairs(Config.Items) do
 		
@@ -141,6 +151,8 @@ function jobChanged()
 				break
 			end
 		end
+		
+		itemJobs[number] = itemJob
 		
 		description = "Modat Zamane sakht: "..item.crafttime.."s\n"
 		if itemJob then
@@ -176,7 +188,7 @@ function jobChanged()
 		for key,olderItems in pairs(items) do
 			if item == olderItems then
 				if not crafting then
-					craftItem(itemsData[key])
+					craftItem(itemsData[key], itemJobs[key])
 					craftMenu:Visible(false)
 					SendNUIMessage({action = "toggle",show = false})
 				else
