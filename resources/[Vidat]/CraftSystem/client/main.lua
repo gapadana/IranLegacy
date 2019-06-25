@@ -200,7 +200,7 @@ end
 
 Citizen.CreateThread(function()
     while true do
-		if ESX ~= nil then
+		if ESX ~= nil and ESX.GetPlayerData().job ~= nil then
 			if preJob == nil then
 				PlayerData = ESX.GetPlayerData()
 				preJob = PlayerData.job.name
