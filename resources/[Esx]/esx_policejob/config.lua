@@ -96,7 +96,7 @@ Config.AuthorizedVehicles = {
 	recruit = {
 		{
 			model = 'police',
-			label = 'Dodge Charger'
+			label = 'benz'
 			
 		},	
 		{
@@ -109,7 +109,7 @@ Config.AuthorizedVehicles = {
 	officer = {
     	{
 			model = 'police',
-			label = 'Dodge Charger'
+			label = 'benz'
 		},	
 		{
 			model = 'police3',
@@ -118,27 +118,21 @@ Config.AuthorizedVehicles = {
 	},
 
 	sergeant = {
-    	{
-			model = 'police2',
-			label = 'Dodge Charger'
-		},
+    	
 		{
 			model = 'police3',
 			label = 'Ford Interceptor'
 		},
 		{
-			model = 'Sheriff2',
+			model = 'fcpd3',
 			label = 'Offroad'
 		},
 	},
 
 	lieutenant = {
+    	
     	{
-			model = 'police2',
-			label = 'Dodge Charger'
-		},
-    	{
-			model = 'Sheriff2',
+			model = 'fcpd3',
 			label = 'Offroad'
 		},
 		{
@@ -155,10 +149,10 @@ Config.AuthorizedVehicles = {
 	boss = {
     	{
 			model = 'police2',
-			label = 'Dodge Charger'
+			label = 'lambor'
 		},
     	{
-			model = 'Sheriff2',
+			model = 'fcpd3',
 			label = 'offroad'
 		},
 		{
@@ -170,10 +164,7 @@ Config.AuthorizedVehicles = {
 			model = 'Riot',
 			label = 'Hamle'
 		},
-		{
-			model = '2015polstang',
-			label = 'Ford'
-		},
+
 		{
 			model = 'polgs350',
 			label = 'Lexus'

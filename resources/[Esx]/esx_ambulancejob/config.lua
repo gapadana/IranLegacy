@@ -135,19 +135,27 @@ Config.AuthorizedVehicles = {
 	ambulance = {
 		{ model = 'ambulance', label = 'Ambulance Van', price = 5000}
 	},
-
+ambulance = {
+		{ model = 'qrv', label = 'Ambulance ', price = 15000}
+	},
 	doctor = {
 		{ model = 'ambulance', label = 'Ambulance Van', price = 4500}
 	},
-
+doctor = {
+		{ model = 'qrv', label = 'Ambulance ', price = 14500}
+	},
 	chief_doctor = {
 		{ model = 'ambulance', label = 'Ambulance Van', price = 3000}
 	},
-
+chief_doctor = {
+		{ model = 'qrv', label = 'Ambulance ', price = 13000}
+	},
 	boss = {
 		{ model = 'ambulance', label = 'Ambulance Van', price = 2000}
+	},
+boss = {
+		{ model = 'qrv', label = 'Ambulance ', price = 12000}
 	}
-
 }
 
 Config.AuthorizedHelicopters = {
