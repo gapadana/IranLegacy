@@ -26,10 +26,8 @@ $(function(){
 			updateStatus(event.data.status);
 		}else if (event.data.action == "toggle"){
 			if (event.data.show){
-				console.log("boz");
 				$('.ui').show();
 			} else{
-				console.log("boz");
 				$('.ui').hide();
 			}
 		}else if (event.data.action == "toggleHealthLoss"){
