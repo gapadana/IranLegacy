@@ -21,14 +21,15 @@ end)
 --[[ ***** SPAWN ***** ]]
 RegisterServerEvent("antirpquestion:didQuestion")
 AddEventHandler("antirpquestion:didQuestion", function()
-	local xPlayer = ESX.GetPlayerFromId(source)
+	local _source = source
+	local xPlayer = ESX.GetPlayerFromId(_source)
 	MySQL.Async.fetchAll('SELECT question_rp, created FROM users WHERE `identifier`=@identifier;', {['@identifier'] = xPlayer.identifier}, function(users)
 		for i=1, #users, 1 do
 			local questionMade = users[i].question_rp
 			print(questionMade)
 			if (questionMade == "false") then
 				if users[i].created then
-					TriggerClientEvent('antirpquestion:notMade',source)
+					TriggerClientEvent('antirpquestion:notMade',_source)
 				end
 			end
 		end	

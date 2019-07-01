@@ -12,7 +12,7 @@ $(document).ready(function(){
   var goodAnswer = [];
   var questionUsed = [];
   var nbQuestionToAnswer = 9; // don't forget to change the progress bar max value in html
-  var nbAnswerNeeded = 9; // out of nbQuestionToAnswer
+  var nbAnswerNeeded = 8; // out of nbQuestionToAnswer
   var nbPossibleQuestions = 10; //number of questions in database questions.js
 
   function getRandomQuestion() {
