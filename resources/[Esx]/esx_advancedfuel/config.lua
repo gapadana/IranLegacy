@@ -58,4 +58,4 @@ text_y = 0.808
 electricityPrice = 1 -- NOT RANOMED !!
 
 randomPrice = false --Random the price of each stations
-price = 1 --If random price is on False, set the price here for 1 liter
+price = 2 --If random price is on False, set the price here for 1 liter
