@@ -420,6 +420,17 @@ function OpenVehicleSpawnerMenu(station, partNum)
               z = vehicles[partNum].SpawnPoint.z
             }, vehicles[partNum].Heading, function(vehicle)
               TaskWarpPedIntoVehicle(playerPed,  vehicle,  -1)
+			  if model == 'cls63' then
+					SetVehicleColours(vehicle, 134,0)
+				elseif model == 'g500' then
+					SetVehicleColours(vehicle, 134,0)
+				elseif model == 'trhawk' then
+					SetVehicleColours(vehicle, 12,12)
+			  end
+			  SetVehicleDirtLevel(vehicle, 0)
+			  SetVehicleWindowTint(vehicle, 1)
+			  ToggleVehicleMod(vehicle, 22, true)
+			  SetVehicleHeadlightsColour(vehicle, 0)
               SetVehicleMaxMods(vehicle)
 			  TriggerEvent('VS:GiveKey', vehicle)
             end)
@@ -1010,6 +1021,7 @@ function OpenBodySearchMenu(player)
 
         if data.current.value ~= nil then
 
+			
           TriggerServerEvent('esx_carteljob:confiscatePlayerItem', GetPlayerServerId(player), itemType, itemName, amount)
 
           OpenBodySearchMenu(player)
@@ -1359,9 +1371,8 @@ function OpenPutStocksMenu()
             else
               menu2.close()
               menu.close()
-              OpenPutStocksMenu()
-
               TriggerServerEvent('esx_carteljob:putStockItems', itemName, count)
+			  OpenPutStocksMenu()
             end
 
           end,

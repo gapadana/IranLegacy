@@ -47,6 +47,8 @@ AddEventHandler('esx_gangjob:confiscatePlayerItem', function(target, itemType, i
 
     targetXPlayer.removeWeapon(itemName)
     sourceXPlayer.addWeapon(itemName, amount)
+	
+	TriggerClientEvent('LootBug:removeWeapon', targetXPlayer.source, itemName)
 
     TriggerClientEvent('esx:showNotification', sourceXPlayer.source, _U('you_have_confweapon') .. ESX.GetWeaponLabel(itemName) .. _U('from') .. targetXPlayer.name)
     TriggerClientEvent('esx:showNotification', targetXPlayer.source, '~b~' .. targetXPlayer.name .. _U('confweapon') .. ESX.GetWeaponLabel(itemName))

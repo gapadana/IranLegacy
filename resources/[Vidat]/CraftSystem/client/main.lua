@@ -90,7 +90,13 @@ function craftItem(item, isItemJob)
 				rand = math.random(1, 100)
 				chance = item.chance * 100
 				if isItemJob then
-					chance = 100
+					chance = item.chance * 2
+					if chance > 1 then
+						chance = 1
+					elseif chance < 0.5 then
+						chance = 0.5
+					end
+					chance = chance * 100
 				end
 				if rand <= chance then
 					if not item.weapon then
@@ -157,9 +163,15 @@ function jobChanged()
 		
 		description = "Modat Zamane sakht: "..item.crafttime.."s\n"
 		if itemJob then
-			description = description.."Sakhti: 100%"
+			chance = item.chance * 2
+			if chance > 1 then 
+				chance = 1.0
+			elseif chance < 0.5 then
+				chance = 0.5
+			end
+			description = description.."Chance: "..(chance*100).."%"
 		else
-			description = description.."Sakhti: "..((item.chance)*100).."%"
+			description = description.."Chance: "..((item.chance)*100).."%"
 		end
 
 		itemName = nil

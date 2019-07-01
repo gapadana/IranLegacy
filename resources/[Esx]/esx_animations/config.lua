@@ -101,7 +101,7 @@ Config.Animations = {
 		items = {
 			--{label = "Boire un café", type = "anim", data = {lib = "amb@world_human_aa_coffee@idle_a", anim = "idle_a"}},
 			{label = "کار با گوشی نشسته", type = "anim", data = {lib = "anim@heists@prison_heistunfinished_biztarget_idle", anim = "target_idle"}},
-			{label = "کار با گوشی ایستاده", type = "scenario", data = {anim = "world_human_leaning"}},
+			-- {label = "کار با گوشی ایستاده", type = "scenario", data = {anim = "world_human_leaning"}},
 			{label = "دراز کشیدن", type = "scenario", data = {anim = "WORLD_HUMAN_SUNBATHE_BACK"}},
 			{label = "دمر خوابیدن", type = "scenario", data = {anim = "WORLD_HUMAN_SUNBATHE"}},
 			{label = "پاک کردن شیشه", type = "scenario", data = {anim = "world_human_maid_clean"}},

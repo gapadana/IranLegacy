@@ -294,31 +294,6 @@ Config.Items = {
 	
 	[17] = {
 		
-		name = 'WEAPON_STUNGUN',
-		crafttime = 30,
-		weapon = true,
-		Needs = {
-			{name = 'semi_body', count = 1},
-			{name = 'metal_hq', count = 1},
-			{name = 'metal_sheet', count = 1},
-			{name = 'glue_lq', count = 1},
-		},
-		Jobs = {
-			{name = 'fbi'},
-			{name = 'gang'},
-			{name = 'mafia'},
-			{name = 'mafia2'},
-			{name = 'cartel'},
-			{name = 'police'},
-			{name = 'securiter'},
-			{name = 'biker'},
-		},
-		chance = 0.9
-		
-	},
-	
-	[18] = {
-		
 		name = 'WEAPON_COMBATPISTOL',
 		crafttime = 45,
 		weapon = true,
@@ -344,7 +319,7 @@ Config.Items = {
 		
 	},
 	
-	[19] = {
+	[18] = {
 		
 		name = 'WEAPON_PISTOL',
 		crafttime = 45,
@@ -371,7 +346,7 @@ Config.Items = {
 		
 	},
 	
-	[20] = {
+	[19] = {
 		
 		name = 'WEAPON_PISTOL50',
 		crafttime = 60,
@@ -394,11 +369,11 @@ Config.Items = {
 			{name = 'securiter'},
 			{name = 'biker'},
 		},
-		chance = 0.6
+		chance = 0.3
 		
 	},
 	
-	[21] = {
+	[20] = {
 		
 		name = 'WEAPON_REVOLVER',
 		crafttime = 60,
@@ -425,7 +400,7 @@ Config.Items = {
 		
 	},
 	
-	[22] = {
+	[21] = {
 		
 		name = 'WEAPON_APPISTOL',
 		crafttime = 75,
@@ -452,7 +427,7 @@ Config.Items = {
 		
 	},
 	
-	[23] = {
+	[22] = {
 		
 		name = 'WEAPON_MICROSMG',
 		crafttime = 75,
@@ -479,142 +454,7 @@ Config.Items = {
 		
 	},
 	
-	[24] = {
-		
-		name = 'WEAPON_SMG',
-		crafttime = 75,
-		weapon = true,
-		Needs = {
-			{name = 'smg_body', count = 4},
-			{name = 'metal_hq', count = 3},
-			{name = 'metal_sheet', count = 2},
-			{name = 'glue_hq', count = 3},
-			{name = 'gear', count = 3},
-			{name = 'metal_spring', count = 3},
-		},
-		Jobs = {
-			{name = 'fbi'},
-			{name = 'gang'},
-			{name = 'mafia'},
-			{name = 'mafia2'},
-			{name = 'cartel'},
-			{name = 'police'},
-			{name = 'securiter'},
-			{name = 'biker'},
-		},
-		chance = 0.2
-		
-	},
-	
-	[25] = {
-		
-		name = 'WEAPON_DBSHOTGUN',
-		crafttime = 60,
-		weapon = true,
-		Needs = {
-			{name = 'semi_body', count = 3},
-			{name = 'cutted_wood', count = 5},
-			{name = 'metal_sheet', count = 2},
-			{name = 'glue_lq', count = 3},
-			{name = 'gear', count = 2},
-			{name = 'metal_spring', count = 2},
-		},
-		Jobs = {
-			{name = 'fbi'},
-			{name = 'gang'},
-			{name = 'mafia'},
-			{name = 'mafia2'},
-			{name = 'cartel'},
-			{name = 'police'},
-			{name = 'securiter'},
-			{name = 'biker'},
-		},
-		chance = 0.8
-		
-	},
-	
-	[26] = {
-		
-		name = 'WEAPON_SAWNOFFSHOTGUN',
-		crafttime = 75,
-		weapon = true,
-		Needs = {
-			{name = 'semi_body', count = 4},
-			{name = 'metal_hq', count = 4},
-			{name = 'metal_sheet', count = 2},
-			{name = 'glue_hq', count = 3},
-			{name = 'gear', count = 2},
-			{name = 'metal_spring', count = 2},
-		},
-		Jobs = {
-			{name = 'fbi'},
-			{name = 'gang'},
-			{name = 'mafia'},
-			{name = 'mafia2'},
-			{name = 'cartel'},
-			{name = 'police'},
-			{name = 'securiter'},
-			{name = 'biker'},
-		},
-		chance = 0.5
-		
-	},
-	
-	[27] = {
-		
-		name = 'WEAPON_PUMPSHOTGUN',
-		crafttime = 75,
-		weapon = true,
-		Needs = {
-			{name = 'semi_body', count = 4},
-			{name = 'metal_hq', count = 4},
-			{name = 'metal_sheet', count = 2},
-			{name = 'glue_hq', count = 3},
-			{name = 'gear', count = 2},
-			{name = 'metal_spring', count = 2},
-		},
-		Jobs = {
-			{name = 'fbi'},
-			{name = 'gang'},
-			{name = 'mafia'},
-			{name = 'mafia2'},
-			{name = 'cartel'},
-			{name = 'police'},
-			{name = 'securiter'},
-			{name = 'biker'},
-		},
-		chance = 0.5
-		
-	},
-	
-	[28] = {
-		
-		name = 'WEAPON_ASSAULTSHOTGUN',
-		crafttime = 90,
-		weapon = true,
-		Needs = {
-			{name = 'semi_body', count = 5},
-			{name = 'metal_hq', count = 5},
-			{name = 'metal_sheet', count = 3},
-			{name = 'glue_hq', count = 3},
-			{name = 'gear', count = 3},
-			{name = 'metal_spring', count = 3},
-		},
-		Jobs = {
-			{name = 'fbi'},
-			{name = 'gang'},
-			{name = 'mafia'},
-			{name = 'mafia2'},
-			{name = 'cartel'},
-			{name = 'police'},
-			{name = 'securiter'},
-			{name = 'biker'},
-		},
-		chance = 0.2
-		
-	},
-	
-	[29] = {
+	[23] = {
 		
 		name = 'WEAPON_ASSAULTRIFLE',
 		crafttime = 90,
@@ -641,34 +481,7 @@ Config.Items = {
 		
 	},
 	
-	[30] = {
-		
-		name = 'WEAPON_CARBINERIFLE',
-		crafttime = 90,
-		weapon = true,
-		Needs = {
-			{name = 'rifle_body', count = 3},
-			{name = 'metal_hq', count = 3},
-			{name = 'metal_sheet', count = 3},
-			{name = 'glue_hq', count = 3},
-			{name = 'gear', count = 3},
-			{name = 'metal_spring', count = 3},
-		},
-		Jobs = {
-			{name = 'fbi'},
-			{name = 'gang'},
-			{name = 'mafia'},
-			{name = 'mafia2'},
-			{name = 'cartel'},
-			{name = 'police'},
-			{name = 'securiter'},
-			{name = 'biker'},
-		},
-		chance = 0.1
-		
-	},
-	
-	[31] = {
+	[24] = {
 		
 		name = 'WEAPON_BULLPUPRIFLE',
 		crafttime = 90,
@@ -695,7 +508,7 @@ Config.Items = {
 		
 	},
 	
-	[32] = {
+	[25] = {
 		
 		name = 'WEAPON_SPECIALCARBINE',
 		crafttime = 90,

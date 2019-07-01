@@ -64,7 +64,7 @@
 	</Item>
     <Item type="CHandlingData">
       <handlingName>FCPD3</handlingName>
-      <fMass value="2850.000000" />
+      <fMass value="3850.000000" />
       <fInitialDragCoeff value="0.520000" />
       <fPercentSubmerged value="85.000000" />
       <vecCentreOfMassOffset x="0.000000" y="-0.250000" z="0.000000" />

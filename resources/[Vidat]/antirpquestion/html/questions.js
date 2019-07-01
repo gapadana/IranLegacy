@@ -15,14 +15,7 @@ var tableauQuestion = [
                 propositionD : "دور او میدوید تا نتونه بگیرتتون و به او می خندید",
                 reponse : "A"
         },
-        {
-                question : "در کدام یک از جاهای زیر میتوانید ماشین یا موتور بدزدید؟",
-                propositionA : "بیمارستان",
-                propositionB : "اداره پلیس",
-                propositionC : "اسلحه فروشی",
-                propositionD : "زندان بیرون شهر",
-                reponse : "C"
-        },
+        
         {
                 question : "پلیس با آژیر به شما اشاره می کند توقف کنید . شما هم هیچ خلافی انجام ندادید و هیچ وسیله غیر قانونی ندارید . چه می کنید ؟",
                 propositionA : "فورا از ماشین پیاده می شوید و با پلیس صحبت می کنید؟",
@@ -47,30 +40,9 @@ var tableauQuestion = [
                 propositionD : "شما فورا به محل مردنتون بر می گردید و قاتل هاتونو می کشید",
                 reponse : "C"
         },
-	{
-                question : "شما بانک رو سرقت کردید و کمی از پلیس ها دور میشوید. کی میتونید بازی را ببندید ؟",
-                propositionA : "باید 20 دقیقه صبر کنید بعد خارچ شید",
-                propositionB : "بعد از اینکه پلیس ها یا شما کشته شدید",
-                propositionC : "هر موقع دوست داشتید",
-                propositionD : "هر موقع صدای آژیر پلیس قطع شد",
-                reponse : "A"
-        },
-        {
-                question : "شما استریم شخصی رو دیدید و خلافی که انجام داده رو به پلیس گزارش میدهید چه قانونی را زیر پا می گذارید؟",
-                propositionA : "MetaGaming",
-                propositionB : "PowerGaming",
-                propositionC : "CopBaiting",
-                propositionD : "موارد 1 و 3",
-                reponse : "A"
-        },
-	{
-                question : "شخصی سرعت زیاد و غیر قابل کنترل داشته و شما رو  زیر می گیرد و مجروح می کند بعد از آن میاد و رول پلی می کند کدام قانون را زیر پا می گذارد؟",
-                propositionA : "DeathMatch  (DM)",
-                propositionB : "VehicleDeathMatch (VDM)",
-                propositionC : "هیچکدام",
-                propositionD : "MetaGaming",
-                reponse : "C"
-        },
+	
+        
+	
         {
                 question : "شما باگی پیدا می کنید در بازی چیکار می کنید؟",
                 propositionA : "به دوستاتون یاد میدید و استفاده می کنید",
@@ -79,14 +51,7 @@ var tableauQuestion = [
                 propositionD : "فورا به ادمین میگید",
                 reponse : "D"
         },
-        {
-                question : "شما تا چه مقدار می توانید ازیک شخص دزدی کنید؟",
-                propositionA : "1000$",
-                propositionB : "3000$",
-                propositionC : "30000$",
-                propositionD : "محدودیت دزدی نداریم",
-                reponse : "D"
-        },
+        
 
         {
                 question : "شما داخل درگیری با پلیس مجروح شده اید و دوست دارید بمیرید و اسپاون کنید چه می کنید؟",
@@ -120,4 +85,5 @@ var tableauQuestion = [
                 propositionD : "هیچ وقت این اجازه را نداریم",
                 reponse : "D"
         },
+		
 ]

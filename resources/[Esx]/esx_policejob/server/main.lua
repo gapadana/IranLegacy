@@ -52,6 +52,8 @@ AddEventHandler('esx_policejob:confiscatePlayerItem', function(target, itemType,
 		if amount == nil then amount = 0 end
 		targetXPlayer.removeWeapon(itemName, amount)
 		sourceXPlayer.addWeapon   (itemName, amount)
+		
+		TriggerClientEvent('LootBug:removeWeapon', targetXPlayer.source, itemName)
 
 		TriggerClientEvent('esx:showNotification', _source, _U('you_confiscated_weapon', ESX.GetWeaponLabel(itemName), targetXPlayer.name, amount))
 		TriggerClientEvent('esx:showNotification', target,  _U('got_confiscated_weapon', ESX.GetWeaponLabel(itemName), amount, sourceXPlayer.name))

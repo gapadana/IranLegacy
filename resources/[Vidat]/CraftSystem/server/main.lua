@@ -15,7 +15,6 @@ Citizen.CreateThread(function()
 			if xPlayer ~= nil then
 				for _,item in pairs(needs) do
 					local itemInv = xPlayer.getInventoryItem(item.name)
-					print (itemInv.name.." "..itemInv.count.." "..item.count)
 					if itemInv == nil or itemInv.count < item.count then
 						result = false
 						break

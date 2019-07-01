@@ -29,7 +29,7 @@ Config.BikerStations = {
 
     --  { name = 'WEAPON_SAWNOFFSHOTGUN',       price = 1125000 },
 
-      { name = 'WEAPON_BAT',      price = 600000 },
+      --{ name = 'WEAPON_BAT',      price = 600000 },
      -- { name = 'WEAPON_STUNGUN',          price = 50000 },
      -- { name = 'WEAPON_FLASHLIGHT',       price = 800 },
      -- { name = 'WEAPON_FIREEXTINGUISHER', price = 1200 },
@@ -41,7 +41,7 @@ Config.BikerStations = {
      -- { name = 'WEAPON_GRENADE',          price = 180000 },
      -- { name = 'WEAPON_BZGAS',            price = 120000 },
      -- { name = 'WEAPON_SMOKEGRENADE',     price = 100000 },
-     { name = 'WEAPON_APPISTOL',         price = 70000 },
+  --   { name = 'WEAPON_APPISTOL',         price = 70000 },
      -- { name = 'WEAPON_CARBINERIFLE',     price = 1100000 },
    --   { name = 'WEAPON_HEAVYSNIPER',      price = 2000000 },
     --  { name = 'WEAPON_MINIGUN',          price = 700000 },

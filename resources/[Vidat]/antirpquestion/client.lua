@@ -4,7 +4,10 @@ local questionOpen = false
 
 -- ***************** Spawning
 AddEventHandler('playerSpawned', function(spawn)
-	TriggerServerEvent('antirpquestion:didQuestion')
+	Citizen.CreateThread(function()
+		Citizen.Wait(5000)
+		TriggerServerEvent('antirpquestion:didQuestion')
+	end)
 end)
 
 RegisterNetEvent('antirpquestion:notMade')

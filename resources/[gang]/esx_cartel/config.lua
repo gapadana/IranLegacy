@@ -4,7 +4,7 @@ Config.MarkerType                 = 1
 Config.MarkerSize                 = { x = 1.5, y = 1.5, z = 1.0 }
 Config.MarkerColor                = { r = 50, g = 50, b = 204 }
 Config.EnablePlayerManagement     = true
-Config.EnableArmoryManagement     = false
+Config.EnableArmoryManagement     = true
 Config.EnableESXIdentity          = true -- only turn this on if you are using esx_identity
 Config.EnableNonFreemodePeds      = false -- turn this on if you want custom peds
 Config.EnableSocietyOwnedVehicles = false
@@ -50,10 +50,11 @@ Config.CartelStations = {
     },
 
 	AuthorizedVehicles = {
-		  { name = 'cognoscenti2',  label = 'Véhicule Blindé' },
+		  { name = 'g500',  label = 'Benz G500' },
 		  { name = 'Manchez',    label = 'Moto' },
-		  { name = 'Contender',   label = '4X4' },
-		  { name = 'felon',      label = 'Véhicule Civil' },
+		  { name = 'trhawk',   label = 'JEEP' },
+		  { name = 'cls63',      label = 'Mersedes Benz' },
+		  { name = 'guardian',      label = 'Guardian' },
 	},
 	
 	AuthorizedBoats = {

@@ -1,0 +1,8 @@
+{
+    "version": "1.35",
+    "changelog": [
+        "- Using a better method for the /hlrange command.",
+        "- Requires the 'hlabels.hlrange' ace to be allowed for the /hlrange command to be used.",
+        "- Allow the 'hlabels' ace to allow all commands/features for this resource."
+    ]
+}
