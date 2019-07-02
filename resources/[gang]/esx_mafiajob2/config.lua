@@ -25,15 +25,15 @@ Config.Mafia2Stations = {
     },
 
     AuthorizedWeapons = {
-      { name = 'WEAPON_COMBATPISTOL',     price = 30000 },
-      { name = 'WEAPON_ASSAULTSMG',       price = 1125000 },
-      { name = 'WEAPON_ASSAULTRIFLE',     price = 1500000 },
-      { name = 'WEAPON_PUMPSHOTGUN',      price = 600000 },
-      { name = 'WEAPON_STUNGUN',          price = 50000 },
-      { name = 'WEAPON_FLASHLIGHT',       price = 800 },
-      { name = 'WEAPON_SNIPERRIFLE',      price = 2200000 },
-      { name = 'WEAPON_APPISTOL',         price = 70000 },
-      { name = 'WEAPON_CARBINERIFLE',     price = 1100000 },
+      -- { name = 'WEAPON_COMBATPISTOL',     price = 30000 },
+      -- { name = 'WEAPON_ASSAULTSMG',       price = 1125000 },
+      -- { name = 'WEAPON_ASSAULTRIFLE',     price = 1500000 },
+      -- { name = 'WEAPON_PUMPSHOTGUN',      price = 600000 },
+      -- { name = 'WEAPON_STUNGUN',          price = 50000 },
+      -- { name = 'WEAPON_FLASHLIGHT',       price = 800 },
+      -- { name = 'WEAPON_SNIPERRIFLE',      price = 2200000 },
+      -- { name = 'WEAPON_APPISTOL',         price = 70000 },
+      -- { name = 'WEAPON_CARBINERIFLE',     price = 1100000 },
     },
 
 	  AuthorizedVehicles = {

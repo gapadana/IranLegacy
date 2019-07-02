@@ -25,10 +25,10 @@ Config.CartelStations = {
     },
 
     AuthorizedWeapons = {
-      { name = 'WEAPON_SAWNOFFSHOTGUN',       price = 9000 },
-      { name = 'WEAPON_PISTOL50',     price = 30000 },
-      { name = 'WEAPON_BULLPUPSHOTGUN',       price = 1125000 },
-      { name = 'WEAPON_COMPACTRIFLE',     price = 1500000 },
+      -- { name = 'WEAPON_SAWNOFFSHOTGUN',       price = 9000 },
+      -- { name = 'WEAPON_PISTOL50',     price = 30000 },
+      -- { name = 'WEAPON_BULLPUPSHOTGUN',       price = 1125000 },
+      -- { name = 'WEAPON_COMPACTRIFLE',     price = 1500000 },
      -- { name = 'WEAPON_PUMPSHOTGUN',      price = 600000 },
      -- { name = 'WEAPON_STUNGUN',          price = 50000 },
      -- { name = 'WEAPON_FLASHLIGHT',       price = 800 },
