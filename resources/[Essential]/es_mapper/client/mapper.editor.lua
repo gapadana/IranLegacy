@@ -1118,7 +1118,7 @@ Citizen.CreateThread(function()
 			local playerPed = GetPlayerPed(-1)
 
 			-- Disable collision
-      for i=0, 32, 1 do
+      for i=0, 256, 1 do
         if i ~= PlayerId() then
           local otherPlayerPed = GetPlayerPed(i)
           SetEntityNoCollisionEntity(playerPed,  otherPlayerPed,  true)
