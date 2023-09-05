@@ -1,4 +1,4 @@
-# ESX-Server
+# IranLegacy
 ### FiveM resources used by IranLegacy Server (based on ESX)
 ## History
 Server resources of one of the first FiveM servers in Iran: IranLegacy
